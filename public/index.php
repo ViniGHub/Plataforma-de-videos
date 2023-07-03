@@ -14,8 +14,12 @@ if (!array_key_exists('PATH_INFO' ,$_SERVER)  ) {
     }
 } elseif ($_SERVER['PATH_INFO'] === '/remover-video') {
     require_once __DIR__ . '/../remover-video.php';
-} elseif ($_SERVER['PATH_INFO'] === '/login') {
-    require_once __DIR__ . '/pages/login.php';
+} elseif ($_SERVER['PATH_INFO'] === '/log') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        require_once __DIR__ . '/pages/login.php';
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        require_once __DIR__ . '/../log.php';
+    }
 } else {
     http_response_code(404);
 }
