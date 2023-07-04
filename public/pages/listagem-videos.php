@@ -8,7 +8,7 @@ shuffle($videoList);
 <?php require_once './pages/cabecalho/inicio-html.php'; ?>
     
     <ul class="videos__container" alt="videos alura">
-        <h2 style="font-size: 60px; width: 100vw; font-family: 'Caprasimo', cursive;">Para Você</h2>    
+        <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">Para Você</h2>    
         <?php 
         foreach ($videoList as $video) { 
             if (!str_starts_with($video['url'], 'http')) {
