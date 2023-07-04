@@ -45,4 +45,9 @@
     margin: 2em 0;
     border-radius: 24px;
     background-color: var(--azul-escuro);
+    transition: 0.5;
+}
+
+.formulario__botao:active {
+    transform: scale(1.1);
 }
