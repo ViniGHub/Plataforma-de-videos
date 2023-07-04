@@ -20,21 +20,17 @@ $videoRepository = new VideoRepository($pdo);
 
 if (!array_key_exists('PATH_INFO' ,$_SERVER)  ) {
     $controller = new VideoListController($videoRepository);
-    // require_once __DIR__ . '/pages/listagem-videos.php';
 
 } elseif ($_SERVER['PATH_INFO'] === '/enviar-video') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $controller = new VideoFormController($videoRepository);
-        // require_once __DIR__ . '/pages/enviar-video.php';
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $controller = new VideoController($videoRepository);
-        // require_once __DIR__ . '/../novo-video.php';
 
     }
 } elseif ($_SERVER['PATH_INFO'] === '/remover-video') {
     $controller = new DeleteVideoController($videoRepository);
-    // require_once __DIR__ . '/../remover-video.php';
 
 } elseif ($_SERVER['PATH_INFO'] === '/log') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
