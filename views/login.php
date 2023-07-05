@@ -1,4 +1,4 @@
-<?php require_once './pages/cabecalho/inicio-html.php'; ?>
+<?php require_once '../views/cabecalho/inicio-html.php'; ?>
     <main class="container">
 
         <form action="./log" class="container__formulario" method="post">
@@ -20,4 +20,4 @@
         </form>
 
     </main>
-<?php require_once './pages/cabecalho/fim-html.php'; ?>
+<?php require_once '../views/cabecalho/fim-html.php';
