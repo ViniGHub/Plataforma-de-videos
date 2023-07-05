@@ -8,6 +8,8 @@ use Alura\Mvc\Controller\DeleteVideoController;
 use Alura\Mvc\Controller\VideoController;
 use Alura\Mvc\Controller\VideoFormController;
 use Alura\Mvc\Controller\Error404Controller;
+use Alura\Mvc\Controller\LogController;
+use Alura\Mvc\Controller\LoginFormController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -34,10 +36,10 @@ if (!array_key_exists('PATH_INFO' ,$_SERVER)  ) {
 
 } elseif ($_SERVER['PATH_INFO'] === '/log') {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        require_once __DIR__ . '/pages/login.php';
+        $controller = new LoginFormController();
 
     } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        require_once __DIR__ . '/../log.php';
+        $controller = new LogController();
 
     }
 } else {
