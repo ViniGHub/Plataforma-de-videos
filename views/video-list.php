@@ -1,7 +1,7 @@
 <?php require_once '../views/cabecalho/inicio-html.php'; ?>
 
 <ul class="videos__container" alt="videos alura">
-    <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">Para Você</h2>
+    <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">FY Page</h2>
     <?php
     foreach ($videoList as $video) {
     ?>
