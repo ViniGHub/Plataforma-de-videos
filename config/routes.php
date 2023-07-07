@@ -4,7 +4,7 @@ use Alura\Mvc\Controller\DeleteVideoController;
 use Alura\Mvc\Controller\LoginController;
 use Alura\Mvc\Controller\LoginFormController;
 use Alura\Mvc\Controller\LogoutController;
-use Alura\Mvc\Controller\RemoveCover;
+use Alura\Mvc\Controller\RemoveCoverVideo;
 use Alura\Mvc\Controller\VideoController;
 use Alura\Mvc\Controller\VideoFormController;
 use Alura\Mvc\Controller\VideoListController;
@@ -17,5 +17,5 @@ return [
     'GET|/log' => LoginFormController::class,
     'POST|/log' => LoginController::class,
     'GET|/logout' => LogoutController::class,
-    'GET|/remover-capa' => RemoveCover::class
+    'GET|/remover-capa' => RemoveCoverVideo::class
 ];
