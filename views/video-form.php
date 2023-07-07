@@ -6,12 +6,13 @@ use Alura\Mvc\Repo\VideoRepository;
 require_once '../views/cabecalho/inicio-html.php'; ?>
 <main class="container">
 
-    <form action="/enviar-video?id=<?= $id ?>" method="post" class="container__formulario">
+    <form action="/enviar-video?id=<?= $id ?>" method="post" class="container__formulario" enctype="multipart/form-data">
         <?php
         if (!$id == null) {
             $video = $videoRepository->find($id);
             $url = $video->url;
             $titulo = $video->title;
+            $image = $video->getFilePath();
         } else {
             $url = null;
             $titulo = null;
@@ -28,6 +29,11 @@ require_once '../views/cabecalho/inicio-html.php'; ?>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="titulo">Titulo do vídeo</label>
             <input name="titulo" class="campo__escrita" required placeholder="Neste campo, dê o nome do vídeo" id='titulo' value="<?= $titulo ?>" />
+        </div>
+
+        <div class="formulario__campo">
+            <label class="campo__etiqueta" for="image">Capa do vídeo</label>
+            <input type="file" name="image" class="campo__escrita" accept="image/*" id='image' value="<?= $image ?>" />
         </div>
 
         <input class="formulario__botao" type="submit" value="Enviar" />
