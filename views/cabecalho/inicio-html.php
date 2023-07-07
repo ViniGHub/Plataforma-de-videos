@@ -28,7 +28,7 @@
 
             <div class="cabecalho__icones">
                 <a href="../enviar-video?id=<?= null; ?>" class="cabecalho__videos"></a>
-                <a href="../log" class="cabecalho__sair">Sair</a>
+                <a href="../logout" class="cabecalho__sair">Sair</a>
             </div>
         </nav>
 

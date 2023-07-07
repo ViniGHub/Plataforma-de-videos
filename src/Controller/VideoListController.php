@@ -7,7 +7,7 @@ use Alura\Mvc\Repo\VideoRepository;
 
 class VideoListController implements Controller
 {
-    
+
     public function __construct(private VideoRepository $videoRepository)
     {
     }
@@ -16,7 +16,7 @@ class VideoListController implements Controller
     {
         $videoList = $this->videoRepository->all();
         shuffle($videoList);
-
+        
         require_once '../views/video-list.php';
     }
 }

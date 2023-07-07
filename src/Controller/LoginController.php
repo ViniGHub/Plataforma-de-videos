@@ -18,6 +18,7 @@ class LoginController implements Controller
         $user = $this->userRepository->find($email);
 
         if (password_verify($password, $user->password ?? '')) {
+            $_SESSION['logado'] = true;
             header('location: /?sucesso=1');
         } else {
             header('location: /log?sucesso=0');
