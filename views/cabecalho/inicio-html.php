@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
 
 
-    <title>AluraPlay</title>
+    <title>ViniGallery</title>
 </head>
 
 <body>

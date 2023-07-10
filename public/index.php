@@ -26,6 +26,7 @@ $httpMethod = $_SERVER['REQUEST_METHOD'];
 $loginRoute = '/log';
 
 session_start();
+session_regenerate_id();
 if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $loginRoute)) {
     $_SESSION['logado'] = false;
     header('location: /log?sucesso=0');
