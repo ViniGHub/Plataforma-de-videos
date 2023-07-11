@@ -28,11 +28,11 @@ $loginRoute = '/log';
 session_start();
 session_regenerate_id();
 if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $loginRoute)) {
-    $_SESSION['logado'] = false;
+    unset($_SESSION['logado']);
     $_SESSION['error_message'] = 'Você deve logar antes.';
     header('location: /log');
     return;
-} elseif (!$_SESSION['logado'] && !($pathInfo === $loginRoute)) {
+} elseif (!isset($_SESSION['logado']) && !($pathInfo === $loginRoute)) {
     $_SESSION['error_message'] = 'Você deve logar antes.';
     header('location: /log');
     return;

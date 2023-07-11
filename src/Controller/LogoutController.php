@@ -5,7 +5,7 @@ class LogoutController implements Controller
 {
     public function processaRequisicao(): void 
     {
-        $_SESSION['logado'] = false;
+        unset($_SESSION['logado']);
         header('location: /log');   
         return;
     }
