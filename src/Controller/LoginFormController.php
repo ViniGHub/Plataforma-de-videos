@@ -4,7 +4,7 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Repo\VideoRepository;
 
-class LoginFormController implements Controller
+class LoginFormController extends ControllerHtml implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {
@@ -19,6 +19,6 @@ class LoginFormController implements Controller
             }
         }
 
-        require_once '../views/login.php';
+        echo $this->renderTemplate('login', []);
     }
 }

@@ -20,7 +20,8 @@ class VideoController implements Controller
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
         if (!$url || !$titulo) {
-            header('location: /?sucesso=0');
+            $_SESSION['error_message'] = 'Dados do formulário inválidos.';
+            header('location: /enviar-video?id='. $id);
             exit();
         }
 
@@ -46,9 +47,10 @@ class VideoController implements Controller
         }
 
         if ($result) {
-            header('location: /?sucesso=1');
+            header('location: /');
         } else {
-            header('location: /?sucesso=0');
+            $_SESSION['error_message'] = 'Erro ao cadastrar vídeo.';
+            header('location: /' . $_SERVER['REQUEST_URI']);
         }
     }
 }

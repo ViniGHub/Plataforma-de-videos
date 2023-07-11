@@ -3,9 +3,8 @@
 namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Repo\VideoRepository;
-use PDO;
 
-class VideoFormController implements Controller
+class VideoFormController extends ControllerHtml implements Controller
 {
     public function __construct(private VideoRepository $videoRepository)
     {
@@ -16,6 +15,6 @@ class VideoFormController implements Controller
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $videoRepository = $this->videoRepository;
         
-        require_once '../views/video-form.php';
+        echo $this->renderTemplate('video-form', ['id' => $id, 'videoRepository' => $videoRepository]);
     }
 }

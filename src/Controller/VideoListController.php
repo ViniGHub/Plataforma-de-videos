@@ -5,7 +5,7 @@ namespace Alura\Mvc\Controller;
 use Alura\Mvc\Repo\VideoRepository;
 
 
-class VideoListController implements Controller
+class VideoListController extends ControllerHtml implements Controller
 {
 
     public function __construct(private VideoRepository $videoRepository)
@@ -17,6 +17,6 @@ class VideoListController implements Controller
         $videoList = $this->videoRepository->all();
         shuffle($videoList);
         
-        require_once '../views/video-list.php';
+        echo $this->renderTemplate('video-list', ['videoList' => $videoList]);;
     }
 }
