@@ -17,10 +17,11 @@ class RemoveCoverVideo implements Controller
         $result = $this->videoRepository->removeCover($id);
 
         if ($result) {
-            header('location: /?sucesso=1');
+            header('location: /');
             exit();
         }
-        header('location: /?sucesso=0');
+        $_SESSION['error_message'] = 'Não foi possivel remover a capa do vídeo.';
+        header('location: /');
 
     }
 }

@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+body > header {
+    height: 80px;
+}
+
 body {
     font-family: Roboto, Arial, Helvetica, sans-serif;
     background-color: var(--azul-claro);
