@@ -2,10 +2,12 @@
 
 namespace Alura\Mvc\Controller;
 
+use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\VideoRepository;
 
 class RemoveCoverVideo implements Controller
 {
+    use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository) 
     {
         
@@ -20,7 +22,7 @@ class RemoveCoverVideo implements Controller
             header('location: /');
             exit();
         }
-        $_SESSION['error_message'] = 'Não foi possivel remover a capa do vídeo.';
+        $this->addErrorMessage('Não foi possivel remover a capa do vídeo.');
         header('location: /');
 
     }

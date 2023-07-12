@@ -24,6 +24,7 @@ body {
     color: white;
     box-sizing: border-box;
     text-align: center;
+    overflow: hidden;
 }
 
 /* ESTILOS DO HEADER */
@@ -104,6 +105,17 @@ body {
     border-left: none;
     padding: 15px 15px;
     cursor: pointer;
+}
+
+.load__page {
+    position: absolute;
+    background: white url('../img/load.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 }
 
 @media(min-width: 834px) {

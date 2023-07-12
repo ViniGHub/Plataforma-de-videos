@@ -15,11 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
 
 
-    <title>ViniGallery</title>
+    <title>VideoGallery</title>
 </head>
 
 <body>
-
+    <div class="load__page" id="load__page"></div>
     <!-- Cabecalho -->
     <header>
 

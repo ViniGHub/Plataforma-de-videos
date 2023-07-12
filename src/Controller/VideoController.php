@@ -3,11 +3,13 @@
 namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\entity\Video;
+use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\VideoRepository;
 use finfo;
 
 class VideoController implements Controller
 {
+    use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository)
     {
     }
@@ -20,7 +22,7 @@ class VideoController implements Controller
         $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
         if (!$url || !$titulo) {
-            $_SESSION['error_message'] = 'Dados do formulário inválidos.';
+            $this->addErrorMessage('Dados do formulário inválidos.');
             header('location: /enviar-video?id='. $id);
             exit();
         }
@@ -49,7 +51,7 @@ class VideoController implements Controller
         if ($result) {
             header('location: /');
         } else {
-            $_SESSION['error_message'] = 'Erro ao cadastrar vídeo.';
+            $this->addErrorMessage('Erro ao cadastrar vídeo.');
             header('location: /' . $_SERVER['REQUEST_URI']);
         }
     }

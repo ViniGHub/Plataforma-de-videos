@@ -42,6 +42,8 @@ if (array_key_exists("$httpMethod|$pathInfo", $routes)) {
     $controllerClass = $routes["$httpMethod|$pathInfo"];
     if ("$httpMethod|$pathInfo" === 'POST|/log') {
         $controller = new $controllerClass($userRepository);
+    } elseif ("$httpMethod|$pathInfo" === 'GET|/') {
+        $controller = new $controllerClass($userRepository, $videoRepository);
     } else {
         $controller = new $controllerClass($videoRepository);
     }

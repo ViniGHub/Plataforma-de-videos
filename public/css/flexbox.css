@@ -17,7 +17,13 @@
     flex-wrap: wrap;
     gap: 20px;
     z-index: 1;
-    padding: 153px 20px 10px 20px;
+    padding: 50px 20px 10px 20px;
+}
+
+.email__user {
+    font-size: 50px;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .videos__item {
