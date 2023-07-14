@@ -7,7 +7,9 @@ use Alura\Mvc\Repo\VideoRepository;
 use Alura\Mvc\Controller\Error404Controller;
 use Alura\Mvc\Repo\UserRepository;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Alura\Mvc\Helper\FlashMessageTrait;
 
+require_once '../src/helper/FlashMessageTrait.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
 /** @var Controller $controller */
@@ -20,6 +22,9 @@ $videoRepository = new VideoRepository($pdo);
 $userRepository = new UserRepository($pdo);
 
 $routes = require_once '../config/routes.php';
+
+/** @var \Psr\Container\ContainerInterface $diContainer */
+$diContainer = require_once '../config/dependencies.php';
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -29,26 +34,19 @@ session_start();
 session_regenerate_id();
 if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $loginRoute)) {
     unset($_SESSION['logado']);
-    $_SESSION['error_message'] = 'Você deve logar antes.';
+    FlashMessageTrait::addErrorMessage('Você deve logar antes.');
     header('location: /log');
     return;
 } elseif (!isset($_SESSION['logado']) && !($pathInfo === $loginRoute)) {
-    $_SESSION['error_message'] = 'Você deve logar antes.';
+    FlashMessageTrait::addErrorMessage('Você deve logar antes.');
     header('location: /log');
     return;
 }
 
 if (array_key_exists("$httpMethod|$pathInfo", $routes)) {
     $controllerClass = $routes["$httpMethod|$pathInfo"];
-    if ("$httpMethod|$pathInfo" === 'POST|/log') {
-        $controller = new $controllerClass($userRepository);
-    } elseif ("$httpMethod|$pathInfo" === 'GET|/') {
-        $controller = new $controllerClass($userRepository, $videoRepository);
-    } else {
-        $controller = new $controllerClass($videoRepository);
-    }
-} else {
-    $controller = new Error404Controller($videoRepository);
+    $controller = $diContainer->get($controllerClass);
+    
 }
 
 $psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
