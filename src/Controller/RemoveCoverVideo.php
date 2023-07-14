@@ -4,26 +4,33 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\VideoRepository;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
-class RemoveCoverVideo implements Controller
+class RemoveCoverVideo implements RequestHandlerInterface
 {
     use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository) 
     {
         
     }
-    public function processaRequisicao(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $getParams = $request->getQueryParams();
+        $id = filter_var($getParams['id'], FILTER_VALIDATE_INT);
+        $video = $this->videoRepository->find($id);
 
+        $filePath = './img/uploads/' . $video->getFilePath();
         $result = $this->videoRepository->removeCover($id);
 
         if ($result) {
-            header('location: /');
-            exit();
+            unlink($filePath);
+            return new Response(302, ['location' => '/']);
         }
         $this->addErrorMessage('Não foi possivel remover a capa do vídeo.');
-        header('location: /');
+        return new Response(302, ['location' => '/']);
 
     }
 }

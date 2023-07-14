@@ -108,12 +108,12 @@ body {
 }
 
 .load__page {
-    position: absolute;
+    position: fixed;
     background: white url('../img/load.gif');
     background-repeat: no-repeat;
     background-position: center;
     background-size: 10%;
-    width: 100%;
+    width: 100vw;
     height: 100%;
     z-index: 100;
 }

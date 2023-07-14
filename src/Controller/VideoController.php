@@ -6,38 +6,48 @@ use Alura\Mvc\entity\Video;
 use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\VideoRepository;
 use finfo;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
-class VideoController implements Controller
+class VideoController implements RequestHandlerInterface
 {
     use FlashMessageTrait;
     public function __construct(private VideoRepository $videoRepository)
     {
     }
 
-    public function processaRequisicao(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $url = filter_input(INPUT_POST, 'url', FILTER_VALIDATE_URL);
-        $titulo = filter_input(INPUT_POST, 'titulo');
-        $image = $_FILES['image'];
-        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $postParams = $request->getParsedBody();
+        $getParams = $request->getQueryParams();
+        $files = $request->getUploadedFiles();
+
+        $url = filter_var($postParams['url'], FILTER_VALIDATE_URL);
+        $titulo = $postParams['titulo'];
+        $image = $files['image'];
+        $id = filter_var($getParams['id'], FILTER_VALIDATE_INT);
 
         if (!$url || !$titulo) {
             $this->addErrorMessage('Dados do formulário inválidos.');
-            header('location: /enviar-video?id='. $id);
-            exit();
+            return new Response(302, ['location' => '/enviar-video?id='. $id]);
         }
 
         $video = new Video($url, $titulo);
-        if ($image['error'] === UPLOAD_ERR_OK) {
-            $safeFileName = pathinfo($image['name'], PATHINFO_BASENAME);
+        if ($image->getError() === UPLOAD_ERR_OK) {
+            $safeFileName = $image->getStream()->getMetaData('uri');
             $fInfo = new finfo(FILEINFO_MIME_TYPE);
-            $mimeType = $fInfo->file($image['tmp_name']);
+            $mimeType = $fInfo->file($safeFileName);
+            $type = explode('/',$mimeType);
 
-            if (str_starts_with('image/', $mimeType)) {
-                move_uploaded_file($image['tmp_name'], './img/uploads/' . $safeFileName);
+            if ($type[0] === 'image') {
+                $prefix = uniqid();
+                $image->moveTo('./img/uploads/' .$prefix . $image->getClientFilename());
                 
             }
-            $video->setFilePath($image['name']);
+            
+            $video->setFilePath($prefix .$image->getClientFilename());
         }
 
 
@@ -49,10 +59,10 @@ class VideoController implements Controller
         }
 
         if ($result) {
-            header('location: /');
+            return new Response(302, ['location' => '/']);
         } else {
             $this->addErrorMessage('Erro ao cadastrar vídeo.');
-            header('location: /' . $_SERVER['REQUEST_URI']);
+            return new Response(302, ['location' => '/' . $_SERVER['REQUEST_URI']]);
         }
     }
 }

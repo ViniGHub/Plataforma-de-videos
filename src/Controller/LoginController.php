@@ -4,18 +4,23 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\UserRepository;
+use Nyholm\Psr7\Response;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
-class LoginController implements Controller
+class LoginController implements RequestHandlerInterface
 {
     use FlashMessageTrait;
     public function __construct(private UserRepository $userRepository)
     {
     }
 
-    public function processaRequisicao(): void
+    public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $email = filter_input(INPUT_POST, 'email');
-        $password = filter_input(INPUT_POST, 'password');
+        $postParams = $request->getParsedBody();
+        $email = $postParams['email'];
+        $password = $postParams['password'];
 
         $user = $this->userRepository->find($email);
 
@@ -25,10 +30,10 @@ class LoginController implements Controller
             }
 
             $_SESSION['logado'] = true;
-            header('location: /');
+            return new Response(302, ['location' => '/']);
         } else {
            $this->addErrorMessage('Usuário ou senha inválidos.');
-            header('location: /log');
+            return new Response(302, ['location' => '/log']);
         }
     }
 }

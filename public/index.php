@@ -6,7 +6,7 @@ use Alura\Mvc\Controller\Controller;
 use Alura\Mvc\Repo\VideoRepository;
 use Alura\Mvc\Controller\Error404Controller;
 use Alura\Mvc\Repo\UserRepository;
-
+use Nyholm\Psr7Server\ServerRequestCreator;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -51,4 +51,23 @@ if (array_key_exists("$httpMethod|$pathInfo", $routes)) {
     $controller = new Error404Controller($videoRepository);
 }
 
-$controller->processaRequisicao();
+$psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();
+
+$creator = new ServerRequestCreator(
+    $psr17Factory, // ServerRequestFactory
+    $psr17Factory, // UriFactory
+    $psr17Factory, // UploadedFileFactory
+    $psr17Factory  // StreamFactory
+);
+
+$request = $creator->fromGlobals();
+
+$response = $controller->handle($request);
+
+http_response_code($response->getStatusCode());
+foreach ($response->getHeaders() as $name => $values) {
+    foreach ($values as $value) {
+        header(sprintf('%s: %s', $name, $value), false);
+    }
+}
+echo $response->getBody();
