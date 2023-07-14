@@ -7,6 +7,7 @@ use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\VideoRepository;
 use finfo;
 use Nyholm\Psr7\Response;
+use Nyholm\Psr7\UploadedFile;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -26,6 +27,8 @@ class VideoController implements RequestHandlerInterface
 
         $url = filter_var($postParams['url'], FILTER_VALIDATE_URL);
         $titulo = $postParams['titulo'];
+
+        /** @var UploadedFile $image */
         $image = $files['image'];
         $id = filter_var($getParams['id'], FILTER_VALIDATE_INT);
 

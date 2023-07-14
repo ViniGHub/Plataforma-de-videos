@@ -20,6 +20,9 @@ $videoRepository = new VideoRepository($pdo);
 $userRepository = new UserRepository($pdo);
 
 $routes = require_once '../config/routes.php';
+
+/** @var \Psr\Container\ContainerInterface $diContainer */
+$diContainer = require_once '../config/dependencies.php';
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
@@ -40,15 +43,8 @@ if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $loginRoute)) {
 
 if (array_key_exists("$httpMethod|$pathInfo", $routes)) {
     $controllerClass = $routes["$httpMethod|$pathInfo"];
-    if ("$httpMethod|$pathInfo" === 'POST|/log') {
-        $controller = new $controllerClass($userRepository);
-    } elseif ("$httpMethod|$pathInfo" === 'GET|/') {
-        $controller = new $controllerClass($userRepository, $videoRepository);
-    } else {
-        $controller = new $controllerClass($videoRepository);
-    }
-} else {
-    $controller = new Error404Controller($videoRepository);
+    $controller = $diContainer->get($controllerClass);
+    
 }
 
 $psr17Factory = new \Nyholm\Psr7\Factory\Psr17Factory();

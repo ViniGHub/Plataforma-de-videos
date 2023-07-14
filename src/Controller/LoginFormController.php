@@ -12,9 +12,9 @@ use Psr\Http\Server\RequestHandlerInterface;
 class LoginFormController implements RequestHandlerInterface
 {
     use HtmlRendererTrait;
-    public function __construct(private VideoRepository $videoRepository)
-    {
-    }
+    // public function __construct(private VideoRepository $videoRepository)
+    // {
+    // }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
