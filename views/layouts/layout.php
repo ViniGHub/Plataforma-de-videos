@@ -34,5 +34,22 @@
 
     </header>
     <?php if (isset($_SESSION['error_message'])) { ?>
-    <h2 class="formulario__titulo Erro__titulo"><?php echo $_SESSION['error_message']; unset($_SESSION['error_message']) ?></h2>
+        <h2 class="formulario__titulo Erro__titulo"><?php echo $_SESSION['error_message'];
+                                                    unset($_SESSION['error_message']) ?></h2>
     <?php } ?>
+
+    <?= $this->section('content') ?>
+
+    <script>
+        let load = document.querySelector('#load__page');
+        let body = document.querySelector('body');
+
+        window.addEventListener('load', function() {
+            load.style.display = 'none';
+            body.style.overflow = 'visible';
+
+        });
+    </script>
+</body>
+
+</html>

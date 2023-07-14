@@ -1,9 +1,10 @@
 <?php
+
 /** @var VideoRepository $videoRepository */
 
-use Alura\Mvc\Repo\VideoRepository;
+use Alura\Mvc\Repo\VideoRepository; ?>
 
-require_once '../views/cabecalho/inicio-html.php'; ?>
+<?= $this->layout('/layouts/layout') ?>
 <main class="container">
 
     <form action="/enviar-video?id=<?= $id ?>" method="post" class="container__formulario" enctype="multipart/form-data">
@@ -40,4 +41,3 @@ require_once '../views/cabecalho/inicio-html.php'; ?>
     </form>
 
 </main>
-<?php require_once '../views/cabecalho/fim-html.php';
