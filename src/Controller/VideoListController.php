@@ -21,8 +21,7 @@ class VideoListController implements RequestHandlerInterface
     {
         $videoList = $this->videoRepository->all();
         shuffle($videoList);
-        $user = $this->userRepository->find('shamanrodri');
         
-        return new Response(200, body: $this->renderTemplate('video-list', ['videoList' => $videoList, 'user' => $user]));
+        return new Response(200, body: $this->renderTemplate('video-list', ['videoList' => $videoList]));
     }
 }

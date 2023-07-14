@@ -1,7 +1,7 @@
 <?php require_once '../views/cabecalho/inicio-html.php'; ?>
 
-<?php if ($user) { ?>
-<h1 class="email__user" style="margin-top: 10px;"><?= $user->getEmail() ?></h1>
+<?php if (isset($_SESSION['email'])) { ?>
+<h1 class="email__user" style="margin-top: 10px;"><?= $_SESSION['email'] ?></h1>
 <?php } ?>
 <ul class="videos__container" alt="videos alura">
     <!-- <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">Fy page</h2> -->

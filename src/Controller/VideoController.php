@@ -31,7 +31,7 @@ class VideoController implements RequestHandlerInterface
 
         if (!$url || !$titulo) {
             $this->addErrorMessage('Dados do formulário inválidos.');
-            return new Response(302, ['location' => '/enviar-video?id='. $id]);
+            return new Response(302, ['location' => '/enviar-video?id=' . $id]);
         }
 
         $video = new Video($url, $titulo);
@@ -39,15 +39,18 @@ class VideoController implements RequestHandlerInterface
             $safeFileName = $image->getStream()->getMetaData('uri');
             $fInfo = new finfo(FILEINFO_MIME_TYPE);
             $mimeType = $fInfo->file($safeFileName);
-            $type = explode('/',$mimeType);
+            $type = explode('/', $mimeType);
 
             if ($type[0] === 'image') {
                 $prefix = uniqid();
-                $image->moveTo('./img/uploads/' .$prefix . $image->getClientFilename());
-                
+                $image->moveTo('./img/uploads/' . $prefix . $image->getClientFilename());
+
+                $videoDB = $this->videoRepository->find($id);
+                $filePath = './img/uploads/' . $videoDB->getFilePath();
+                unlink($filePath);
+    
+                $video->setFilePath($prefix . $image->getClientFilename());
             }
-            
-            $video->setFilePath($prefix .$image->getClientFilename());
         }
 
 

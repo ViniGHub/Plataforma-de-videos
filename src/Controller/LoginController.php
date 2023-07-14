@@ -28,7 +28,8 @@ class LoginController implements RequestHandlerInterface
             if (password_needs_rehash($user->password, PASSWORD_ARGON2ID)) {
                 $this->userRepository->updatePassword($user->id, $password);
             }
-
+        
+            $_SESSION['email'] = $email;
             $_SESSION['logado'] = true;
             return new Response(302, ['location' => '/']);
         } else {
