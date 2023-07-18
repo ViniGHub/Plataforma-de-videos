@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,7 +40,9 @@
                                                     unset($_SESSION['error_message']) ?></h2>
     <?php } ?>
 
-    <?= $this->section('content') ?>
+    <?php
+    /** @var \League\Plates\Template\Template $this */
+    echo $this->section('content'); ?>
 
     <script>
         let load = document.querySelector('#load__page');

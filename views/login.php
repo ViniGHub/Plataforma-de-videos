@@ -1,4 +1,6 @@
-<?= $this->layout('/layouts/layout') ?>
+<?php
+/** @var \League\Plates\Template\Template $this */
+echo $this->layout('/layouts/layout'); ?>
 <main class="container">
 
     <form action="./log" class="container__formulario" method="post">

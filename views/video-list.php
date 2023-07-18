@@ -1,4 +1,6 @@
-<?= $this->layout('/layouts/layout') ?>
+<?php
+/** @var \League\Plates\Template\Template $this */
+echo $this->layout('/layouts/layout') ?>
 
 <?php if (isset($_SESSION['email'])) { ?>
     <h1 class="email__user" style="margin-top: 10px;"><?= $_SESSION['email'] ?></h1>

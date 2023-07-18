@@ -1,6 +1,7 @@
 <?php
 
 /** @var VideoRepository $videoRepository */
+/** @var \League\Plates\Template\Template $this */
 
 use Alura\Mvc\Repo\VideoRepository; ?>
 
