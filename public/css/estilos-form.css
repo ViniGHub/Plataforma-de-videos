@@ -58,3 +58,14 @@
     color: red;
     margin-top: 1rem;
 }
+
+.link__form {
+    text-decoration: underline;
+    font-size: 20px;
+    transition: .5s;
+}
+
+.link__form:hover {
+    text-decoration: none;
+    letter-spacing: .1px;
+}

@@ -28,16 +28,18 @@ $diContainer = require_once '../config/dependencies.php';
 $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
-$loginRoute = '/log';
+$logRoute = '/log';
+$loginRoute = '/login';
+$logoutRoute = '/logout';
 
 session_start();
 session_regenerate_id();
-if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $loginRoute)) {
+if (!array_key_exists('logado', $_SESSION) && !($pathInfo === $logRoute) && !($pathInfo === $loginRoute) && !($pathInfo === $logoutRoute)) {
     unset($_SESSION['logado']);
     FlashMessageTrait::addErrorMessage('Você deve logar antes.');
     header('location: /log');
     return;
-} elseif (!isset($_SESSION['logado']) && !($pathInfo === $loginRoute)) {
+} elseif (!isset($_SESSION['logado']) && !($pathInfo === $logRoute) && !($pathInfo === $loginRoute) && !($pathInfo === $logoutRoute)) {
     FlashMessageTrait::addErrorMessage('Você deve logar antes.');
     header('location: /log');
     return;
