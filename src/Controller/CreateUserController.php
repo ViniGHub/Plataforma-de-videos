@@ -32,6 +32,6 @@ class CreateUserController implements RequestHandlerInterface
         }
         
         $this->addErrorMessage('Não foi possivel criar o usúario');
-        return new Response(302, ['location' => '/login']);
+        return new Response(302, ['location' => '/create-login']);
     }
 }

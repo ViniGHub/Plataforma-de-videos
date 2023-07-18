@@ -24,6 +24,6 @@ return [
     'GET|/remover-capa' => RemoveCoverVideo::class,
     'GET|/videos-json' => JsonVideoListController::class,
     'POST|/videos' => NewJsonVideoController::class,
-    'GET|/login' => CreateUserFormController::class,
-    'POST|/login' => CreateUserController::class
+    'GET|/create-login' => CreateUserFormController::class,
+    'POST|/create-login' => CreateUserController::class
 ];

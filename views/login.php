@@ -16,7 +16,7 @@ echo $this->layout('/layouts/layout'); ?>
                 <input type="password" name="password" class="campo__escrita" required placeholder="Digite sua senha" id='senha' />
             </div>
 
-            <p class="campo__etiqueta">Ainda não tem uma conta? <a class="link__form" href="/login">Criar conta</a></p>
+            <p class="campo__etiqueta">Ainda não tem uma conta? <a class="link__form" href="/create-login">Criar conta</a></p>
 
             <input class="formulario__botao" type="submit" value="Entrar" />
     </form>

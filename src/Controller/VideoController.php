@@ -46,11 +46,8 @@ class VideoController implements RequestHandlerInterface
 
             if ($type[0] === 'image') {
                 $prefix = uniqid();
-                $image->moveTo('./img/uploads/' . $prefix . $image->getClientFilename());
-
-                $videoDB = $this->videoRepository->find($id);
-                $filePath = './img/uploads/' . $videoDB->getFilePath();
-                unlink($filePath);
+                $pathImages = './img/uploads/' . $prefix . $image->getClientFilename();
+                $image->moveTo($pathImages);
     
                 $video->setFilePath($prefix . $image->getClientFilename());
             }
@@ -60,6 +57,9 @@ class VideoController implements RequestHandlerInterface
         if ($id == null) {
             $result = $this->videoRepository->addVideo($video);
         } else {
+            $videoDB = $this->videoRepository->find($id);
+            $filePath = './img/uploads/' . $videoDB->getFilePath();
+            unlink($filePath);
             $video->setId($id);
             $result = $this->videoRepository->updateVideo($video);
         }

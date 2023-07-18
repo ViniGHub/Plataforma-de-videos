@@ -14,7 +14,7 @@ class VideoRepository
 
     public function addVideo(Video $video): bool
     {
-        $sqlVideo = 'INSERT INTO videos (url, title, image_path) VALUES (?,?,?)';
+        $sqlVideo = 'INSERT INTO videos (url, title, image_path) VALUES (?,?,?);';
         $statement = $this->pdo->prepare($sqlVideo);
         $statement->bindValue(1, $video->url);
         $statement->bindValue(2, $video->title);

@@ -29,7 +29,7 @@ $pathInfo = $_SERVER['PATH_INFO'] ?? '/';
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 
 $logRoute = '/log';
-$loginRoute = '/login';
+$loginRoute = '/create-login';
 $logoutRoute = '/logout';
 
 session_start();
