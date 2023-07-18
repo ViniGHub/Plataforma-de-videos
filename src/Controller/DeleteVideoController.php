@@ -19,15 +19,19 @@ class DeleteVideoController implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $getParams = $request->getQueryParams();
+
         $id = filter_var($getParams['id'], FILTER_VALIDATE_INT);
         if ($id === null || $id === false) {
             $this->addErrorMessage('Não foi possível encontrar o vídeo.');
             return new Response(302, ['location' => '/']);
         }
+        $video = $this->videoRepository->find($id);
+        $imagePath = $video->getFilePath();
         
         $result = $this->videoRepository->remove($id);
 
         if ($result) {
+            unlink('./img/uploads/' .$imagePath);
             return new Response(302, ['location' => '/']);
         } else {
             $this->addErrorMessage('Não foi possível remover o vídeo.');

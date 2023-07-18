@@ -28,8 +28,8 @@
 
 .videos__item {
     flex-grow: 1;
-    height: 503px;
-    min-width: 500px;
+    height: 75vh;
+    min-width: 80vw;
 }
 
 /* grid vídeos */

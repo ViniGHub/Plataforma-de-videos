@@ -26,6 +26,10 @@
         <nav class="cabecalho">
             <a class="logo" href="./"></a>
 
+            <?php if (isset($_SESSION['email'])) { ?>
+                <h1 class="email__user" style="margin-top: 10px;"><?= $_SESSION['email'] ?></h1>
+            <?php } ?>
+
             <div class="cabecalho__icones">
                 <a href="../enviar-video?id=<?= null; ?>" class="cabecalho__videos"></a>
                 <a href="../logout" class="cabecalho__sair">Sair</a>
@@ -38,7 +42,9 @@
                                                     unset($_SESSION['error_message']) ?></h2>
     <?php } ?>
 
-    <?= $this->section('content') ?>
+    <?php
+    /** @var \League\Plates\Template\Template $this */
+    echo $this->section('content'); ?>
 
     <script>
         let load = document.querySelector('#load__page');
