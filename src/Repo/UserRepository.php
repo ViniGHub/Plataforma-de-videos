@@ -36,4 +36,15 @@ class UserRepository
         $statement->bindValue(2, $id);
         $statement->execute();
     }
+
+    public function addUser(User $user): bool {
+        $hash = password_hash($user->password, PASSWORD_ARGON2ID);
+
+        $sqlInsert = ('INSERT INTO users (email, password) values (?, ?);');
+        $statement = $this->pdo->prepare($sqlInsert);
+        $statement->bindValue(1, $user->getEmail());
+        $statement->bindValue(2, $hash);
+
+        return $statement->execute();
+    }
 }

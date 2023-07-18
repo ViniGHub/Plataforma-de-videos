@@ -1,5 +1,6 @@
 <?php
 
+use Alura\Mvc\Controller\CreateUserController;
 use Alura\Mvc\Controller\DeleteVideoController;
 use Alura\Mvc\Controller\JsonVideoListController;
 use Alura\Mvc\Controller\LoginController;
@@ -10,6 +11,7 @@ use Alura\Mvc\Controller\RemoveCoverVideo;
 use Alura\Mvc\Controller\VideoController;
 use Alura\Mvc\Controller\VideoFormController;
 use Alura\Mvc\Controller\VideoListController;
+use Alura\Mvc\Controller\CreateUserFormController;
 
 return [
     'GET|/' => VideoListController::class,
@@ -21,5 +23,7 @@ return [
     'GET|/logout' => LogoutController::class,
     'GET|/remover-capa' => RemoveCoverVideo::class,
     'GET|/videos-json' => JsonVideoListController::class,
-    'POST|/videos' => NewJsonVideoController::class
+    'POST|/videos' => NewJsonVideoController::class,
+    'GET|/login' => CreateUserFormController::class,
+    'POST|/login' => CreateUserController::class
 ];
