@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -40,8 +38,10 @@
 
     </header>
     <?php if (isset($_SESSION['error_message'])) { ?>
-        <h2 class="formulario__titulo Erro__titulo"><?php echo $_SESSION['error_message'];
-                                                    unset($_SESSION['error_message']) ?></h2>
+        <div class="container__erro">
+            <h2 class="formulario__titulo Erro__titulo"><?php echo $_SESSION['error_message'];
+                                                        unset($_SESSION['error_message']) ?></h2>
+        </div>
     <?php } ?>
 
     <?php

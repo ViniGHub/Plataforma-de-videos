@@ -57,6 +57,15 @@
 .Erro__titulo {
     color: red;
     margin-top: 1rem;
+
+}
+
+.container__erro {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .link__form {
