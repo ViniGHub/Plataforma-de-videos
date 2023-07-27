@@ -56,10 +56,18 @@ body {
 }
 
 .logo {
-    background-image: url(../img/cabecalho/Logo.png);
+    /* background-image: url(../img/cabecalho/Logo.png); */
     background-repeat: no-repeat;
-    padding: 15px 65px;
+    height: 100px;
+    background-size: cover;
     cursor: pointer;
+}
+
+.icon-desc {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    
 }
 
 

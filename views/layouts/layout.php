@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/estilos-form.css">
     <link rel="stylesheet" href="/css/flexbox.css">
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/cabecalho/Logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
 
 
@@ -24,7 +24,7 @@
     <header>
 
         <nav class="cabecalho">
-            <a class="logo" href="./"></a>
+            <a href="./"><img class="logo" src="./img/cabecalho/Logo.png" alt="Logo canal Vtube"></a>
 
             <?php if (isset($_SESSION['email'])) { ?>
                 <h1 class="email__user" style="margin-top: 10px;"><?= $_SESSION['email'] ?></h1>

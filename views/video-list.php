@@ -17,7 +17,7 @@ echo $this->layout('/layouts/layout') ?>
             <?php } ?>
 
             <div class="descricao-video">
-                <img src="./img/logo.png" alt="logo canal alura">
+                <img class="icon-desc" src="./img/cabecalho/Logo.png" alt="logo canal Vtube">
                 <h3><?php echo $video->title; ?></h3>
                 <div class="acoes-video">
                     <a href="/enviar-video?id=<?= $video->id; ?>">Editar</a>
