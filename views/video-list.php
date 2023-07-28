@@ -1,4 +1,5 @@
 <?php
+
 /** @var \League\Plates\Template\Template $this */
 echo $this->layout('/layouts/layout') ?>
 
@@ -17,12 +18,15 @@ echo $this->layout('/layouts/layout') ?>
             <?php } ?>
 
             <div class="descricao-video">
-                <img class="icon-desc" src="./img/cabecalho/Logo.png" alt="logo canal Vtube">
-                <h3><?php echo $video->title; ?></h3>
+                <div class="cabec-video">
+                    <img class="icon-desc" src="./img/cabecalho/Logo.png" alt="logo canal Vtube">
+                    <h3><?php echo $video->title; ?></h3>
+                </div>
+
                 <div class="acoes-video">
                     <a href="/enviar-video?id=<?= $video->id; ?>">Editar</a>
                     <?php if ($video->getFilePath() !== null) { ?>
-                        <a href="/remover-capa?id=<?= $video->id; ?>">Remover capa</a>
+                        <a href="/remover-capa?id=<?= $video->id; ?>">Tirar <br/> capa</a>
                     <?php } ?>
                     <a href="/remover-video?id=<?= $video->id; ?>">Excluir</a>
                 </div>
