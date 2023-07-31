@@ -1,3 +1,7 @@
+<?php
+
+use League\Plates\Extension\Asset;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +15,7 @@
     <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/estilos-form.css">
     <link rel="stylesheet" href="/css/flexbox.css">
-    <link rel="shortcut icon" href="/img/cabecalho/Logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/cabecalho/logo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
 
 
