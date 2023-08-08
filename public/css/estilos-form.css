@@ -5,6 +5,15 @@
     height: calc(100vh - 150px);
 }
 
+.container-video {
+    width: 100vw;
+    max-height: 100vh;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .container__formulario {
     margin: 3em 0;
     display: flex;
@@ -45,7 +54,7 @@
     margin: 2em 0;
     border-radius: 24px;
     background: radial-gradient(rgba(21, 69, 128, 0.5), rgba(21, 69, 128));
-    transition: 0.5;
+    transition: 0.5s;
     box-shadow: 0 2px 7px black;
 }
 

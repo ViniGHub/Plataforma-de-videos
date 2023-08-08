@@ -15,9 +15,11 @@ use League\Plates\Extension\Asset;
     <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/estilos-form.css">
     <link rel="stylesheet" href="/css/flexbox.css">
-    <link rel="shortcut icon" href="/img/cabecalho/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/cabecalho/Logo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
 
     <title>VideoGallery</title>
 </head>
