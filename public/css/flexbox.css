@@ -23,8 +23,8 @@
 }
 
 .email__user {
-    font-size: 50px;
-    color: black;
+    font-size: 20px;
+    color: var(--azul-escuro);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 

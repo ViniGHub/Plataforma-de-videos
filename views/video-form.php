@@ -24,7 +24,7 @@ use Alura\Mvc\Repo\VideoRepository; ?>
         <h2 class="formulario__titulo">Envie um vídeo!</h2>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="url">Link embed</label>
-            <input name="url" class="campo__escrita" required placeholder="Por exemplo: https://www.youtube.com/embed/FAY1K2aUg5g" id='url' value="<?= $url ?>" />
+            <input name="url" class="campo__escrita" required placeholder="Por exemplo: https://www.youtube.com/embed/dQw4w9WgXcQ" id='url' value="<?= $url ?>" />
         </div>
 
 
