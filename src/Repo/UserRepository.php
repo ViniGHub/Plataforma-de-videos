@@ -37,6 +37,12 @@ class UserRepository
         $statement->execute();
     }
 
+    public function updateLogin() {
+        $sqlupdate = 'UPDATE users SET email = ?, password = ? WHERE email = ?, password = ?;';
+
+        $statement = $this->pdo->prepare($sqlupdate);
+    }
+
     public function addUser(User $user): bool {
         $hash = password_hash($user->password, PASSWORD_ARGON2ID);
 
