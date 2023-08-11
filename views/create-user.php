@@ -7,9 +7,9 @@ echo $this->layout('/layouts/layout');
 <main class="container">
 
     <form action="./create-login" class="container__formulario" method="post">
-        <h2 class="formulario__titulo">Criar Usúario</h3>
+        <h2 class="formulario__titulo">Criar Usúario</h2>
             <div class="formulario__campo">
-                <label class="campo__etiqueta" for="usuario">Email</label>
+                <label class="campo__etiqueta" for="usuario">Usuario</label>
                 <input name="email" class="campo__escrita" required placeholder="Digite seu usuário" id='usuario' />
             </div>
 

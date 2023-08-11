@@ -15,6 +15,7 @@ use League\Plates\Extension\Asset;
     <link rel="stylesheet" href="/css/estilos.css">
     <link rel="stylesheet" href="/css/estilos-form.css">
     <link rel="stylesheet" href="/css/flexbox.css">
+    <link rel="stylesheet" href="/css/animation.css">
     <link rel="shortcut icon" href="/img/cabecalho/Logo.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +36,9 @@ use League\Plates\Extension\Asset;
             <div style="display:flex; align-items: center; justify-content: start;">
                 <i onmouseover="shake(this)" onmouseout="removeShake(this)" style="color: var(--azul-medio); font-size: 30px; margin: 0 10px 0 10px;" class="fa-solid fa-circle-user" id="UserIcon"></i>
                 <?php if (isset($_SESSION['email'])) { ?>
-                    <h1 class="email__user"><?= $_SESSION['email'] ?></h1>
+                    <a href="../change-login">
+                        <h1 class="email__user"><?= $_SESSION['email'] ?></h1>
+                    </a>
                 <?php } else { ?>
                     <a style="color: var(--azul-medio); text-decoration:none;" class="link__form" href="/create-login">Criar conta</a>
 
@@ -81,6 +84,9 @@ use League\Plates\Extension\Asset;
             obj.classList.remove('fa-shake');
         }
     </script>
+
 </body>
+
+
 
 </html>

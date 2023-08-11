@@ -1,0 +1,38 @@
+@keyframes animForm {
+    10% {
+        margin-top: -100px;
+    }
+    20% {
+        margin-top: 680px;
+    }
+    25% {
+        margin-top: 660px;
+    }
+    30% {
+        margin-top: 680px;
+    }
+    35% {
+        margin-top: 670px;
+    }
+    40% {
+        margin-top: 680px;
+    }
+    50% {
+        margin-top: 700px;
+    }
+    65% {
+        margin-top: 2000px;
+    }
+    75% {
+        margin-top: 2000px;
+    }
+    90% {
+        margin-top: -100px;
+    }
+    92% {
+        margin-top: -110px;
+    }
+    94% {
+        margin-top: -100px;
+    }
+}
