@@ -29,11 +29,7 @@ echo $this->layout('layouts/layout');
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
-<<<<<<< HEAD
-                <input class="formulario__botao" type="button" value="Enviar" onclick="checkInput(<?= $user->email ?>, <?= $user->password ?>)"/>
-=======
                 <input class="formulario__botao" type="button" value="Enviar" onclick="checkInput('<?= $user->email ?>', '<?= $user->password ?>')" />
->>>>>>> dev
             </div>
 
         </div>
