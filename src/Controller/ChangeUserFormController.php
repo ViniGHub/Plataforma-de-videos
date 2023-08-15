@@ -14,11 +14,8 @@ class ChangeUserFormController implements RequestHandlerInterface {
     {
     }
     public function handle(ServerRequestInterface $request): ResponseInterface {
-        $nmUser = $_SESSION['email'];
-        $user = $this->userRepository->find($nmUser);
-        // var_dump($user->email);
-        // die();
+        // $nmUser = $_SESSION['email'];
 
-        return new Response(302, body: $this->templates->render('change-user', ['user' => $user]));
+        return new Response(302, body: $this->templates->render('change-user', []));
     }
 }

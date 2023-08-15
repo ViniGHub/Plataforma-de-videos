@@ -37,10 +37,15 @@ class UserRepository
         $statement->execute();
     }
 
-    public function updateLogin() {
-        $sqlupdate = 'UPDATE users SET email = ?, password = ? WHERE email = ?, password = ?;';
+    public function updateLogin(String $email, String $password) {
+        $sqlupdate = 'UPDATE users SET email = ?, password = ? WHERE email = ?;';
 
         $statement = $this->pdo->prepare($sqlupdate);
+        $statement->bindValue(1, $email);
+        $statement->bindValue(2, password_hash($password, PASSWORD_ARGON2ID));
+        $statement->bindValue(3, $_SESSION['email']);
+
+        return $statement->execute();
     }
 
     public function addUser(User $user): bool {
@@ -53,4 +58,6 @@ class UserRepository
 
         return $statement->execute();
     }
+
+    // public
 }

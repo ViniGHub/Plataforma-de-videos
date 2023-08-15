@@ -30,6 +30,7 @@ class LoginController implements RequestHandlerInterface
             }
         
             $_SESSION['email'] = $email;
+            $_SESSION['password'] = $password;
             $_SESSION['logado'] = true;
             return new Response(302, ['location' => '/']);
         } else {

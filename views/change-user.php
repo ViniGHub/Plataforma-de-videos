@@ -9,7 +9,7 @@ echo $this->layout('layouts/layout');
 
 <main class="container" style="overflow-y: hidden;">
 
-<h1></h1>
+    <h1></h1>
 
     <form action="./change-login" class="container__formulario" method="post" id="form_mudarLog">
 
@@ -19,17 +19,17 @@ echo $this->layout('layouts/layout');
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="usuario_att">Usuario atual</label>
-                <input style="background: var(--azul-claro);" name="email_atual" class="campo__escrita campo__att" required placeholder="Digite seu usuário" id='usuario_att' />
+                <input style="background: var(--azul-claro);" name="email_atual" class="campo__escrita campo__att" required placeholder="Digite seu usuário" id='usuario_att'/>
             </div>
 
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="senha_att">Senha atual</label>
-                <input style="background: var(--azul-claro);" type="password" name="password_atual" class="campo__escrita campo__att" required placeholder="Digite sua senha" id='senha_att' />
+                <input style="background: var(--azul-claro);" type="password" name="password_atual" class="campo__escrita campo__att" required placeholder="Digite sua senha" id='senha_att'/>
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
-                <input class="formulario__botao" type="button" value="Enviar" onclick="checkInput('<?= $user->email ?>', '<?= $user->password ?>')" />
+                <input class="formulario__botao" type="button" value="Enviar" onclick="checkInputAtt('<?= $_SESSION['email'] ?>', '<?= $_SESSION['password'] ?>')" id="btn__anim" />
             </div>
 
         </div>
@@ -38,17 +38,17 @@ echo $this->layout('layouts/layout');
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="usuario_new">Novo usuario</label>
-                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita" required placeholder="Digite seu usuário" id='usuario_new' />
+                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita campo__new" required placeholder="Digite seu usuário" id='usuario_new' />
             </div>
 
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="senha_new1">Nova senha</label>
-                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita" required placeholder="Digite sua senha" id='senha_new1' />
+                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita campo__new" required placeholder="Digite sua senha" id='senha_new1' />
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
-                <input class="formulario__botao" type="submit" value="Confirmar" />
+                <input class="formulario__botao" type="button" value="Confirmar" onclick="checkInputNew()" id="btn__subm" />
             </div>
         </div>
 

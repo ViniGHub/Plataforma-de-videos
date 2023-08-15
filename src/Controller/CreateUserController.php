@@ -25,13 +25,18 @@ class CreateUserController implements RequestHandlerInterface
         $email = $postParams['email'];
         $password = $postParams['password'];
 
+        if ($this->userRepository->find($email)) {
+            $this->addErrorMessage('Nome de usuario já está em uso.');
+            return new Response(302, ['location' => '/create-login']);
+        }
+
         $result = $this->userRepository->addUser(new User($email, $password));
-        
+
         if ($result) {
             return new Response(302, ['location' => '/log']);
         }
-        
-        $this->addErrorMessage('Não foi possivel criar o usúario');
+
+        $this->addErrorMessage('Não foi possivel criar o usúario.');
         return new Response(302, ['location' => '/create-login']);
     }
 }
