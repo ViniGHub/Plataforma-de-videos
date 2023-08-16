@@ -2,6 +2,7 @@
 
 namespace Alura\Mvc\Controller;
 
+use Alura\Mvc\Helper\EncryptingPass;
 use Alura\Mvc\Helper\FlashMessageTrait;
 use Alura\Mvc\Repo\UserRepository;
 use Nyholm\Psr7\Response;
@@ -28,13 +29,16 @@ class LoginController implements RequestHandlerInterface
             if (password_needs_rehash($user->password, PASSWORD_ARGON2ID)) {
                 $this->userRepository->updatePassword($user->id, $password);
             }
-        
+
             $_SESSION['email'] = $email;
-            $_SESSION['password'] = $password;
+
+            $crypt = EncryptingPass::encrypt($password, 'VibePass');
+            $_SESSION['password'] = $crypt;
+
             $_SESSION['logado'] = true;
             return new Response(302, ['location' => '/']);
         } else {
-           $this->addErrorMessage('Usuário ou senha inválidos.');
+            $this->addErrorMessage('Usuário ou senha inválidos.');
             return new Response(302, ['location' => '/log']);
         }
     }

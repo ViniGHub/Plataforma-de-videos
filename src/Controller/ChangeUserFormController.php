@@ -1,6 +1,7 @@
 <?php
 namespace Alura\Mvc\Controller;
 
+use Alura\Mvc\Helper\EncryptingPassTrait;
 use Alura\Mvc\Repo\UserRepository;
 use League\Plates\Engine as PlatesEngine;
 use Nyholm\Psr7\Response;
@@ -14,7 +15,6 @@ class ChangeUserFormController implements RequestHandlerInterface {
     {
     }
     public function handle(ServerRequestInterface $request): ResponseInterface {
-        // $nmUser = $_SESSION['email'];
 
         return new Response(302, body: $this->templates->render('change-user', []));
     }

@@ -4,6 +4,8 @@
  * @var League\Plates\Template\Template $this
  */
 
+use Alura\Mvc\Helper\EncryptingPass;
+
 echo $this->layout('layouts/layout');
 ?>
 
@@ -29,7 +31,7 @@ echo $this->layout('layouts/layout');
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
-                <input class="formulario__botao" type="button" value="Enviar" onclick="checkInputAtt('<?= $_SESSION['email'] ?>', '<?= $_SESSION['password'] ?>')" id="btn__anim" />
+                <input class="formulario__botao" type="button" value="Enviar" onclick="checkInputAtt('<?= $_SESSION['email'] ?>', '<?= EncryptingPass::decrypt($_SESSION['password'], 'VibePass') ?>')" id="btn__anim" />
             </div>
 
         </div>

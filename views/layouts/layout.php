@@ -28,12 +28,14 @@ use League\Plates\Extension\Asset;
 
 <body>
 
+    <!-- <div style="height:100vh; width: 4px; background: red; position:absolute; z-index:10; left:50vw;"></div> -->
+
     <div class="load__page" id="load__page"></div>
     <!-- Cabecalho -->
     <header>
 
         <nav class="cabecalho">
-            <div style="display:flex; align-items: center; justify-content: start;">
+            <div style="display:flex; align-items: center; justify-content: start; position: absolute;">
                 <i onmouseover="shake(this)" onmouseout="removeShake(this)" style="color: var(--azul-medio); font-size: 30px; margin: 0 10px 0 10px;" class="fa-solid fa-circle-user" id="UserIcon"></i>
                 <?php if (isset($_SESSION['email'])) { ?>
                     <a href="../change-login">
@@ -44,8 +46,10 @@ use League\Plates\Extension\Asset;
 
                 <?php } ?>
             </div>
+            <div></div>
 
-            <a href="./" style="margin-right: 50px;"><img class="logo" src="./img/cabecalho/Logo.ico" alt="Logo canal Vtube"></a>
+
+            <a href="./" style="margin-left:100px;"><img class="logo" src="./img/cabecalho/Logo.ico" alt="Logo canal Vtube"></a>
 
             <div class="cabecalho__icones">
                 <a href="../enviar-video?id=<?= null; ?>" class="cabecalho__videos"></a>
