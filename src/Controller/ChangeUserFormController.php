@@ -1,6 +1,7 @@
 <?php
 namespace Alura\Mvc\Controller;
 
+use Alura\Mvc\Helper\EncryptingPassTrait;
 use Alura\Mvc\Repo\UserRepository;
 use League\Plates\Engine as PlatesEngine;
 use Nyholm\Psr7\Response;
