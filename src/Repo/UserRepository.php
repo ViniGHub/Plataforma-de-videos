@@ -56,7 +56,12 @@ class UserRepository
         $statement->bindValue(1, $user->getEmail());
         $statement->bindValue(2, $hash);
 
-        return $statement->execute();
+        $result =  $statement->execute();
+
+        $id = $this->pdo->lastInsertId();
+        $user->setId(intval($id));
+
+        return $result;
     }
 
     // public

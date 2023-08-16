@@ -11,6 +11,7 @@ class LogoutController implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         unset($_SESSION['email']);
+        unset($_SESSION['password']);
         unset($_SESSION['logado']);
         return new Response(302, ['location' => '/log']);
     }
