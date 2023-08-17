@@ -21,13 +21,13 @@ echo $this->layout('layouts/layout');
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="usuario_att">Usuario atual</label>
-                <input style="background: var(--azul-claro);" name="email_atual" class="campo__escrita campo__att" required placeholder="Digite seu usuário" id='usuario_att'/>
+                <input style="background: var(--azul-claro);" name="email_atual" class="campo__escrita campo__att" placeholder="Digite seu usuário" id='usuario_att'/>
             </div>
 
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="senha_att">Senha atual</label>
-                <input style="background: var(--azul-claro);" type="password" name="password_atual" class="campo__escrita campo__att" required placeholder="Digite sua senha" id='senha_att'/>
+                <input style="background: var(--azul-claro);" type="password" name="password_atual" class="campo__escrita campo__att" placeholder="Digite sua senha" id='senha_att'/>
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
@@ -40,13 +40,13 @@ echo $this->layout('layouts/layout');
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="usuario_new">Novo usuario</label>
-                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita campo__new" required placeholder="Digite seu usuário" id='usuario_new' />
+                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita campo__new" placeholder="Digite seu usuário" id='usuario_new' />
             </div>
 
 
             <div class="formulario__campo">
                 <label class="campo__etiqueta" for="senha_new1">Nova senha</label>
-                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita campo__new" required placeholder="Digite sua senha" id='senha_new1' />
+                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita campo__new" placeholder="Digite sua senha" id='senha_new1' />
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">

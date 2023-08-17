@@ -1,12 +1,18 @@
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
+}
+
+:root {
     --azul-escuro: #154580;
     --azul-medio: #3970BE;
     --azul-claro: #E5F1FF;
     --cinza-texto: #444444;
     --cinza-claro: #ECECEC;
-    box-sizing: border-box;
+    --campo-confirm-E: #154580;
+    --campo-confirm-P: #154580;
+    
 }
 
 ::-webkit-scrollbar {
@@ -27,6 +33,7 @@
 
 body>header {
     height: 80px;
+    z-index: -3;
 }
 
 body {
@@ -52,7 +59,7 @@ body {
     height: 80px;
     width: 100%;
     padding: 0 25px;
-    z-index: 2;
+    z-index: 10;
 }
 
 .logo {

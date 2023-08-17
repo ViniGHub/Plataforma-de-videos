@@ -54,8 +54,12 @@
     outline: none;
 }
 
-.campo__escrita:focus {
-    box-shadow: 0 0 7px 2px var(--azul-escuro);
+#usuario:focus {
+    box-shadow: 0 0 7px 2px var(--campo-confirm-E);
+}
+
+#senha:focus {
+    box-shadow: 0 0 7px 2px var(--campo-confirm-P);
 }
 
 .campo__etiqueta {

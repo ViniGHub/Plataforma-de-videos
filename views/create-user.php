@@ -9,16 +9,16 @@ echo $this->layout('/layouts/layout');
 
 <main class="container">
 
-    <form action="./create-login" class="container__formulario" method="post">
+    <form action="./create-login" class="container__formulario" method="post" id="formCr">
         <h2 class="formulario__titulo">Criar Usúario</h2>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="usuario">Usuario</label>
-            <input name="email" class="campo__escrita" required placeholder="Digite seu usuário" id='usuario' oninput="checkUser(this)"/>
+            <input name="email" class="campo__escrita" placeholder="Digite seu usuário" id="usuario" oninput="checkUser(this)"/>
         </div>
 
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="senha">Senha</label>
-            <input type="password" name="password" class="campo__escrita" required placeholder="Digite sua senha" id='senha' oninput="checkPass(this)"/>
+            <input type="password" name="password" class="campo__escrita" placeholder="Digite sua senha" id="senha" oninput="checkPass(this)"/>
         </div>
 
         <div style="width: 100%; color:red; display: flex; ">
@@ -40,7 +40,7 @@ echo $this->layout('/layouts/layout');
 
         <p class="campo__etiqueta">Ja tem uma conta? <a class="link__form" href="/log">Login</a></p>
 
-        <input class="formulario__botao" type="submit" value="Entrar" />
+        <input class="formulario__botao" type="submit" value="Entrar" id="btnForm" />
     </form>
 
 </main>
