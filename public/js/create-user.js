@@ -169,3 +169,6 @@ function passlayfun(pass) {
     return isRightPL;
     
 }
+
+checkUser(us);
+checkPass(ps);

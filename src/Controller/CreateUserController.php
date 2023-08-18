@@ -27,6 +27,9 @@ class CreateUserController implements RequestHandlerInterface
 
         if ($this->userRepository->find($email)) {
             $this->addErrorMessage('Nome de usuario já está em uso.');
+            $_SESSION['email_cr'] = $email;
+            $_SESSION['pass_cr'] = $password;
+
             return new Response(302, ['location' => '/create-login']);
         }
 
@@ -37,6 +40,9 @@ class CreateUserController implements RequestHandlerInterface
         }
 
         $this->addErrorMessage('Não foi possivel criar o usúario.');
+        $_SESSION['email_cr'] = $email;
+        $_SESSION['pass_cr'] = $password;
+
         return new Response(302, ['location' => '/create-login']);
     }
 }

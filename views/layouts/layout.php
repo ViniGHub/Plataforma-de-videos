@@ -67,6 +67,8 @@ use League\Plates\Extension\Asset;
         </nav>
 
     </header>
+
+    <!-- Mensagem de erro flash -->
     <?php if (isset($_SESSION['error_message'])) { ?>
         <div class="container__erro">
             <h2 class="formulario__titulo Erro__titulo"><?php echo $_SESSION['error_message'];
@@ -74,9 +76,12 @@ use League\Plates\Extension\Asset;
         </div>
     <?php } ?>
 
+
+    <!-- seção onde entra o conteudo da pagina -->
     <?php
     /** @var \League\Plates\Template\Template $this */
-    echo $this->section('content'); ?>
+    echo $this->section('content');
+    ?>
 
     <script>
         let load = document.querySelector('#load__page');
