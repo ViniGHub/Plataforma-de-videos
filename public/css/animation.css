@@ -36,3 +36,23 @@
         margin-top: -100px;
     }
 }
+
+@keyframes animReq {
+
+    30% {
+        margin-top: 680px;
+    }
+    50% {
+        margin-top: 630px;
+    }
+    70% {
+        margin-top: 665px;
+    }
+    90% {
+        margin-top: 645px;
+    }
+    95% {
+        margin-top: 655px;
+    }
+
+}

@@ -1,5 +1,6 @@
 let oldU = document.querySelector('#form__oldU');
 let formChangeU = document.querySelector('#form_mudarLog');
+let cmp_req = document.querySelector('#cmp_req');
 let bodyForm = document.querySelector('body');
 let titulo = document.querySelector('.formulario__titulo');
 
@@ -10,14 +11,14 @@ let nameAtt = camposAtt[0];
 let passAtt = camposAtt[1];
 
 let camposNew = document.querySelectorAll('.campo__new');
-let btnSubm = document.querySelector('#btn__subm');
+let btnSubm = document.querySelector('#btnForm');
 let nameNew = camposNew[0];
 let passNew = camposNew[1];
 
 function checkInputAtt(name, pass) {
 
     try {
-        
+
         if (!nameAtt.value) {
             nameAtt.focus();
             throw new Error('Preencha o campo de Usuario.');
@@ -25,7 +26,7 @@ function checkInputAtt(name, pass) {
             passAtt.focus();
             throw new Error('Preencha o campo de Senha.');
         } else if (nameAtt.value !== name) {
-           nameAtt.focus();
+            nameAtt.focus();
             throw new Error('O nome informado está errado.');
         } else if (passAtt.value !== pass) {
             passAtt.focus();
@@ -44,7 +45,7 @@ function checkInputAtt(name, pass) {
 function checkInputNew() {
 
     try {
-        
+
         if (!nameNew.value) {
             nameNew.focus();
             throw new Error('Preencha o campo de Usuario.');
@@ -57,7 +58,7 @@ function checkInputNew() {
         console.error(Error.message);
         window.alert(Error.message);
         return;
-    }    
+    }
 
     formChangeU.submit();
 }
@@ -65,11 +66,24 @@ function checkInputNew() {
 function animForm() {
     bodyForm.style.overflowY = 'hidden';
     formChangeU.style.animation = 'animForm 2s linear';
+
     setTimeout(function () {
         oldU.style.zIndex = '-1';
         titulo.innerHTML = 'Novo login';
-    }, 2000*0.75);
-    
+
+    }, 2000 * 0.75);
+
+    setTimeout(function () {
+
+        cmp_req.style.animation = 'animReq .5s linear';
+
+        setTimeout(function () {
+            cmp_req.style.marginTop = '650px';
+        }, 450);
+
+    }, 2000 * 0.97);
+
+
 }
 
 camposAtt.forEach(campoAtt => {
@@ -80,13 +94,13 @@ camposAtt.forEach(campoAtt => {
     })
 });
 
-camposNew.forEach(campoNew => {
-    campoNew.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            checkInputNew();
-        }
-    })
-});
+// camposNew.forEach(campoNew => {
+//     campoNew.addEventListener('keypress', function (e) {
+//         if (e.key === 'Enter') {
+//             checkInputNew();
+//         }
+//     })
+// });
 
 
 window.addEventListener('keypress', function (e) {

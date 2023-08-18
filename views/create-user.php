@@ -9,7 +9,7 @@ echo $this->layout('/layouts/layout');
 
 <main class="container">
 
-    <form action="./create-login" class="container__formulario" method="post" id="formCr">
+    <form action="./create-login" class="container__formulario" method="post" id="form_mudarLog">
         <h2 class="formulario__titulo">Criar Usúario</h2>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="usuario">Usuario</label>
@@ -45,4 +45,4 @@ echo $this->layout('/layouts/layout');
 
 </main>
 
-<script src="/js/create-user.js"></script>
+<script src="/js/user.js"></script>

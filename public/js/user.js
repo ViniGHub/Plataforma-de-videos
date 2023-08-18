@@ -22,9 +22,9 @@ let styl = document.querySelector(':root');
 
 // Botão do formulario e formulario
 let btnForm = document.querySelector('#btnForm');
-let formCr = document.querySelector('#formCr');
+let formU = document.querySelector('#form_mudarLog');
 
-formCr.addEventListener('submit', (e) => {
+formU.addEventListener('submit', (e) => {
     e.preventDefault();
 });
 
@@ -33,7 +33,7 @@ us.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         if (checkUser(us)) {
             if (checkPass(ps)) {
-                formCr.submit();
+                formU.submit();
             } else {
                 window.alert('Insira uma senha válida.');
                 ps.focus();
@@ -49,7 +49,7 @@ ps.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         if (checkUser(us)) {
             if (checkPass(ps)) {
-                formCr.submit();
+                formU.submit();
             } else {
                 window.alert('Insira uma senha válida.');
                 ps.focus();
