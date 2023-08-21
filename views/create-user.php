@@ -9,7 +9,7 @@ echo $this->layout('/layouts/layout');
 
 <main class="container">
 
-    <form action="./create-login" class="container__formulario" method="post" id="form_mudarLog">
+    <form action="./create-login" class="container__formulario" method="post" id="form_userVal">
         <h2 class="formulario__titulo">Criar Usúario</h2>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="usuario">Usuario</label>
@@ -40,9 +40,9 @@ echo $this->layout('/layouts/layout');
 
         <p class="campo__etiqueta">Ja tem uma conta? <a class="link__form" href="/log">Login</a></p>
 
-        <input class="formulario__botao" type="submit" value="Entrar" id="btnForm" />
+        <input class="formulario__botao" type="button" value="Entrar" id="btnForm" />
     </form>
 
 </main>
 
-<script src="/js/user.js"></script>
+<script src="/js/check-user.js"></script>

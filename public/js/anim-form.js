@@ -1,5 +1,5 @@
 let oldU = document.querySelector('#form__oldU');
-let formChangeU = document.querySelector('#form_mudarLog');
+let formChangeU = document.querySelector('#form_userVal');
 let cmp_req = document.querySelector('#cmp_req');
 let bodyForm = document.querySelector('body');
 let titulo = document.querySelector('.formulario__titulo');
@@ -10,21 +10,16 @@ let camposAtt = document.querySelectorAll('.campo__att');
 let nameAtt = camposAtt[0];
 let passAtt = camposAtt[1];
 
-let camposNew = document.querySelectorAll('.campo__new');
-let btnSubm = document.querySelector('#btnForm');
-let nameNew = camposNew[0];
-let passNew = camposNew[1];
-
 function checkInputAtt(name, pass) {
 
     try {
 
         if (!nameAtt.value) {
             nameAtt.focus();
-            throw new Error('Preencha o campo de Usuario.');
+            throw new Error('Preencha o campo Usuario.');
         } else if (!passAtt.value) {
             passAtt.focus();
-            throw new Error('Preencha o campo de Senha.');
+            throw new Error('Preencha o campo Senha.');
         } else if (nameAtt.value !== name) {
             nameAtt.focus();
             throw new Error('O nome informado está errado.');
@@ -40,27 +35,6 @@ function checkInputAtt(name, pass) {
     }
 
     animForm();
-}
-
-function checkInputNew() {
-
-    try {
-
-        if (!nameNew.value) {
-            nameNew.focus();
-            throw new Error('Preencha o campo de Usuario.');
-        } else if (!passNew.value) {
-            passNew.focus();
-            throw new Error('Preencha o campo de Senha.');
-        }
-
-    } catch (Error) {
-        console.error(Error.message);
-        window.alert(Error.message);
-        return;
-    }
-
-    formChangeU.submit();
 }
 
 function animForm() {
@@ -93,15 +67,6 @@ camposAtt.forEach(campoAtt => {
         }
     })
 });
-
-// camposNew.forEach(campoNew => {
-//     campoNew.addEventListener('keypress', function (e) {
-//         if (e.key === 'Enter') {
-//             checkInputNew();
-//         }
-//     })
-// });
-
 
 window.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {

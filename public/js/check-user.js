@@ -22,31 +22,31 @@ let styl = document.querySelector(':root');
 
 // Botão do formulario e formulario
 let btnForm = document.querySelector('#btnForm');
-let formU = document.querySelector('#form_mudarLog');
+let formU = document.querySelector('#form_userVal');
 
 formU.addEventListener('submit', (e) => {
     e.preventDefault();
 });
 
 us.addEventListener('keypress', (e) => {
-
     if (e.key === 'Enter') {
-        if (checkUser(us)) {
-            if (checkPass(ps)) {
-                formU.submit();
-            } else {
-                window.alert('Insira uma senha válida.');
-                ps.focus();
-            }
-        } else {
-            window.alert('Insira um Usuario válido.')
-            us.focus();
-        }
+        checkForm();
     }
 });
 
 ps.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+        checkForm();
+    }
+});
+
+btnForm.addEventListener('click', () => {
+    checkForm();
+});
+
+
+function checkForm() {
+    if (!checkEmpty()) {
         if (checkUser(us)) {
             if (checkPass(ps)) {
                 formU.submit();
@@ -59,7 +59,22 @@ ps.addEventListener('keypress', (e) => {
             us.focus();
         }
     }
-});
+
+}
+
+function checkEmpty() {
+    if (!us.value) {
+        window.alert('Preencha o campo Usuario.');
+        us.focus();
+        return true;
+    } else if (!ps.value) {
+        window.alert('Preencha o campo Senha.');
+        ps.focus();
+        return true;
+    }
+
+    return false;
+}
 
 function checkUser(user) {
 
@@ -118,7 +133,7 @@ function pass3fun(pass) {
         pass3.style.color = 'green';
         setTimeout(function (params) {
             passIco.classList.remove('fa-shake');
-        }, 1000);        
+        }, 1000);
 
     } else if (pass.value.length < 3 && isRightP3) {
         isRightP3 = false;
@@ -150,8 +165,6 @@ function passlayfun(pass) {
         setTimeout(function (params) {
             passlayIco.classList.remove('fa-shake');
         }, 1000);
-
-
     } else if (!passVal.includes('LAY') && isRightPL) {
         isRightPL = false;
         passlayIco.style.color = 'red';
@@ -167,7 +180,7 @@ function passlayfun(pass) {
     }
 
     return isRightPL;
-    
+
 }
 
 checkUser(us);

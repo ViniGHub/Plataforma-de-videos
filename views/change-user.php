@@ -13,7 +13,7 @@ echo $this->layout('layouts/layout');
 
     <h1></h1>
 
-    <form action="./change-login" class="container__formulario" method="post" id="form_mudarLog">
+    <form action="./change-login" class="container__formulario" method="post" id="form_userVal">
 
         <h2 style="font-size: 25px; margin-bottom: 500px; position:absolute;" class="formulario__titulo">Login atual</h2>
 
@@ -39,14 +39,14 @@ echo $this->layout('layouts/layout');
         <div class="container__loginChange" id="form__newU">
 
             <div class="formulario__campo">
-                <label class="campo__etiqueta" for="usuario_new">Novo usuario</label>
-                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita campo__new" oninput="checkUser(this)" placeholder="Digite seu usuário" id='usuario' />
+                <label class="campo__etiqueta" for="usuario">Novo usuario</label>
+                <input style="background: var(--azul-claro);" name="new_email" class="campo__escrita" oninput="checkUser(this)" placeholder="Digite seu usuário" id='usuario' />
             </div>
 
 
             <div class="formulario__campo">
-                <label class="campo__etiqueta" for="senha_new1">Nova senha</label>
-                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita campo__new" oninput="checkPass(this)" placeholder="Digite sua senha" id='senha' />
+                <label class="campo__etiqueta" for="senha">Nova senha</label>
+                <input style="background: var(--azul-claro);" type="password" name="new_password1" class="campo__escrita" oninput="checkPass(this)" placeholder="Digite sua senha" id='senha' />
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center;">
@@ -75,6 +75,6 @@ echo $this->layout('layouts/layout');
 
 </main>
 
-<script src="/js/form.js"></script>
+<script src="/js/anim-form.js"></script>
 
-<script src="/js/user.js"></script>
+<script src="/js/check-user.js"></script>
