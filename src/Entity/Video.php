@@ -6,9 +6,9 @@ class Video
 {
     public readonly string $title;
     public readonly string $url;
-
     private ?string $filePath = null;
     public readonly int $id;
+    public readonly int $id_user;
 
     public function __construct(string $url, string $title)
     {
@@ -34,6 +34,11 @@ class Video
     public function setFilePath(?string $path)
     {
         $this->filePath = $path;
+    }
+
+    public function setIdUser(int $id_user)
+    {
+        $this->id_user = $id_user;
     }
 
     public function getFilePath(): ?string

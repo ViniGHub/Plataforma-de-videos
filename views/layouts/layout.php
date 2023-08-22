@@ -45,15 +45,27 @@ use League\Plates\Extension\Asset;
 
         <nav class="cabecalho">
             <div style="display:flex; align-items: center; justify-content: start; position: absolute;">
-                <i onmouseover="shake(this)" onmouseout="removeShake(this)" style="color: var(--azul-medio); font-size: 30px; margin: 0 10px 0 10px;" class="fa-solid fa-circle-user" id="UserIcon"></i>
-                <?php if (isset($_SESSION['email'])) { ?>
-                    <a href="../change-login">
-                        <h1 class="email__user"><?= $_SESSION['email'] ?></h1>
-                    </a>
-                <?php } else { ?>
-                    <a style="color: var(--azul-medio); text-decoration:none;" class="link__form" href="/create-login">Criar conta</a>
 
-                <?php } ?>
+
+                <?php
+                if (isset($_SESSION['email'])) {
+                ?>
+                    <a href="../change-login" style="display:flex; flex-direction: row-reverse; align-items: center; justify-content: start; position: absolute;">
+
+                        <h1 class="email__user"><?= $_SESSION['email'] ?></h1>
+                    <?php
+                } else { ?>
+                    <a style="color: var(--azul-medio); text-decoration:none; display:flex; flex-direction: row-reverse; align-items: center; justify-content: start; position: absolute;" class="link__form" href="/create-login"><span style="width:max-content">Criar conta</span>
+
+                    <?php
+                } ?>
+                        <i onmouseover="shake(this)" onmouseout="removeShake(this)" style="color: var(--azul-medio); font-size: 30px; margin: 0 10px 0 10px;" class="fa-solid fa-circle-user" id="UserIcon"></i>
+
+                    </a>
+
+
+
+
             </div>
             <div></div>
 
@@ -104,7 +116,5 @@ use League\Plates\Extension\Asset;
     </script>
 
 </body>
-
-
 
 </html>

@@ -22,6 +22,7 @@ class UserRepository
 
         if ($userData) {
             $user = new User($userData['email'], $userData['password']);
+            $user->setId($userData['id']);
             return $user;
         }
 
