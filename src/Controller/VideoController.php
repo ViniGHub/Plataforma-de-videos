@@ -4,6 +4,7 @@ namespace Alura\Mvc\Controller;
 
 use Alura\Mvc\entity\Video;
 use Alura\Mvc\Helper\FlashMessageTrait;
+use Alura\Mvc\Repo\UserRepository;
 use Alura\Mvc\Repo\VideoRepository;
 use finfo;
 use Nyholm\Psr7\Response;
@@ -15,7 +16,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 class VideoController implements RequestHandlerInterface
 {
     use FlashMessageTrait;
-    public function __construct(private VideoRepository $videoRepository)
+    public function __construct(private VideoRepository $videoRepository, private UserRepository $userRepository)
     {
     }
 
@@ -61,7 +62,7 @@ class VideoController implements RequestHandlerInterface
 
 
         if ($id == null) {
-            $result = $this->videoRepository->addVideo($video);
+            $result = $this->videoRepository->addVideo($video, $this->userRepository->find($_SESSION['email']));
         } else {
             $video->setId($id);
             $result = $this->videoRepository->updateVideo($video);

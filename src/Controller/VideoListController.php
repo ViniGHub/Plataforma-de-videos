@@ -18,7 +18,7 @@ class VideoListController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $videoList = $this->videoRepository->all();
+        $videoList = $this->videoRepository->all($this->userRepository->find($_SESSION['email']));
         shuffle($videoList);
         
         return new Response(200, body: $this->templates->render('video-list', ['videoList' => $videoList]));

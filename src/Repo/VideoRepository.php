@@ -2,6 +2,7 @@
 
 namespace Alura\Mvc\Repo;
 
+use Alura\Mvc\entity\User;
 use Alura\Mvc\entity\Video;
 use PDO;
 
@@ -12,13 +13,14 @@ class VideoRepository
     {
     }
 
-    public function addVideo(Video $video): bool
+    public function addVideo(Video $video, User $user): bool
     {
-        $sqlVideo = 'INSERT INTO videos (url, title, image_path) VALUES (?,?,?);';
+        $sqlVideo = 'INSERT INTO videos (url, title, image_path, id_user) VALUES (?,?,?,?);';
         $statement = $this->pdo->prepare($sqlVideo);
         $statement->bindValue(1, $video->url);
         $statement->bindValue(2, $video->title);
         $statement->bindValue(3, $video->getFilePath());
+        $statement->bindValue(4, $user->id);
 
         $result = $statement->execute();
 
@@ -69,10 +71,10 @@ class VideoRepository
     /**
      * @return Video[]
      */
-    public function all(): array
+    public function all(User $user): array
     {
         return array_map(
-            $this->hydrateVideo(...), $this->pdo->query('SELECT * FROM videos;')->fetchAll(PDO::FETCH_ASSOC));
+            $this->hydrateVideo(...), $this->pdo->query('SELECT * FROM videos vi JOIN users us ON vi.id_user = us.id WHERE vi.id_user ='. $user->id . ';')->fetchAll(PDO::FETCH_ASSOC));
     }
 
     public function find(int $id): Video
@@ -87,6 +89,7 @@ class VideoRepository
         $video = new Video($videoData['url'], $videoData['title']);
         $video->setId($videoData['id']);
         $video->setFilePath($videoData['image_path']);
+        $video->setIdUser($videoData['id_user']);
 
         return $video;
     }
