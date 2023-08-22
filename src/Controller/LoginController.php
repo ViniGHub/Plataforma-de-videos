@@ -39,6 +39,9 @@ class LoginController implements RequestHandlerInterface
             return new Response(302, ['location' => '/']);
         } else {
             $this->addErrorMessage('Usuário ou senha inválidos.');
+            $_SESSION['email_ch'] = $email;
+            $_SESSION['pass_ch'] = $password;
+
             return new Response(302, ['location' => '/log']);
         }
     }

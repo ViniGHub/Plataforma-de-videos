@@ -13,12 +13,12 @@ echo $this->layout('/layouts/layout');
         <h2 class="formulario__titulo">Criar Usúario</h2>
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="usuario">Usuario</label>
-            <input name="email" class="campo__escrita" placeholder="Digite seu usuário" id="usuario" oninput="checkUser(this)" value="<?= $email_cr ?>"/>
+            <input name="email" class="campo__escrita" placeholder="Digite seu usuário" id="usuario" oninput="checkUser(this)" value="<?= $email_ch ?>"/>
         </div>
 
         <div class="formulario__campo">
             <label class="campo__etiqueta" for="senha">Senha</label>
-            <input type="password" name="password" class="campo__escrita" placeholder="Digite sua senha" id="senha" oninput="checkPass(this)" value="<?= $pass_cr ?>"/>
+            <input type="password" name="password" class="campo__escrita" placeholder="Digite sua senha" id="senha" oninput="checkPass(this)" value="<?= $pass_ch ?>"/>
         </div>
 
         <div style="width: 100%; color:red; display: flex; ">

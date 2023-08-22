@@ -22,6 +22,14 @@ class LoginFormController implements RequestHandlerInterface
             }
         }
 
-        return new Response(200, body: $this->templates->render('login', []));
+        if (isset($_SESSION['email_ch']) && isset($_SESSION['pass_ch'])) {
+            $email_ch = $_SESSION['email_ch'];
+            $pass_ch = $_SESSION['pass_ch'];
+            unset($_SESSION['email_ch']);
+            unset($_SESSION['pass_ch']);
+        }
+
+
+        return new Response(200, body: $this->templates->render('login', ['email_ch' => $email_ch ?? '', 'pass_ch' => $pass_ch ?? '']));
     } 
 }
