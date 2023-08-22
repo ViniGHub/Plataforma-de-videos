@@ -19,13 +19,13 @@ class CreateUserFormController implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        if (isset($_SESSION['email_cr']) && isset($_SESSION['pass_cr'])) {
-            $email_cr = $_SESSION['email_cr'];
-            $pass_cr = $_SESSION['pass_cr'];
-            unset($_SESSION['email_cr']);
-            unset($_SESSION['pass_cr']);
+        if (isset($_SESSION['email_ch']) && isset($_SESSION['pass_ch'])) {
+            $email_ch = $_SESSION['email_ch'];
+            $pass_ch = $_SESSION['pass_ch'];
+            unset($_SESSION['email_ch']);
+            unset($_SESSION['pass_ch']);
         }
 
-        return new Response(200, body: $this->templates->render('create-user', ['email_cr' => $email_cr ?? '', 'pass_cr' => $pass_cr ?? '']));
+        return new Response(200, body: $this->templates->render('create-user', ['email_ch' => $email_ch ?? '', 'pass_ch' => $pass_ch ?? '']));
     }
 }

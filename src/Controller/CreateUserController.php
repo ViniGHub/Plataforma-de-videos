@@ -40,8 +40,8 @@ class CreateUserController implements RequestHandlerInterface
         }
 
         $this->addErrorMessage('Não foi possivel criar o usúario.');
-        $_SESSION['email_cr'] = $email;
-        $_SESSION['pass_cr'] = $password;
+        $_SESSION['email_ch'] = $email;
+        $_SESSION['pass_ch'] = $password;
 
         return new Response(302, ['location' => '/create-login']);
     }
