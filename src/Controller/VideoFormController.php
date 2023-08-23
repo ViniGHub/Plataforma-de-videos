@@ -20,7 +20,7 @@ class VideoFormController implements RequestHandlerInterface
         $getParams = $request->getQueryParams();
         $id = filter_var($getParams['id'], FILTER_VALIDATE_INT);
         $videoRepository = $this->videoRepository;
-        
+
         return new Response(200, body: $this->templates->render('video-form', ['id' => $id, 'videoRepository' => $videoRepository])); 
     }
 }
