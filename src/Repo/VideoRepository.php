@@ -74,7 +74,7 @@ class VideoRepository
     public function all(User $user): array
     {
         return array_map(
-            $this->hydrateVideo(...), $this->pdo->query('SELECT * FROM videos vi JOIN users us ON vi.id_user = us.id WHERE vi.id_user ='. $user->id . ';')->fetchAll(PDO::FETCH_ASSOC));
+            $this->hydrateVideo(...), $this->pdo->query('SELECT * FROM videos WHERE videos.id_user ='. $user->id . ';')->fetchAll(PDO::FETCH_ASSOC));
     }
 
     public function find(int $id): Video
