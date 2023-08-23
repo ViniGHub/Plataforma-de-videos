@@ -17,7 +17,7 @@ if (!empty($videoList)) { ?>
                         <img width="100%" height="72%" src="/img/uploads/<?= $video->getFilePath(); ?>" alt="" style="object-fit: cover;">
                     </a>
                 <?php } else { ?>
-                    <iframe width="100%" height="72%" src="<?php echo $video->url; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="100%" height="72%" src="<?php echo $video->url; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 <?php } ?>
 
                 <div class="descricao-video">
