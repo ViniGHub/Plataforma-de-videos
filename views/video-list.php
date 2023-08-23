@@ -4,6 +4,8 @@
 echo $this->layout('/layouts/layout') ?>
 
 <!-- <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">Fy page</h2> -->
+<div class="search__result" id="search__result"></div>
+
 <?php
 if (!empty($videoList)) { ?>
     <ul class="videos__container" alt="videos alura">
@@ -47,3 +49,5 @@ if (!empty($videoList)) { ?>
 
 <?php
 } ?>
+
+<script src="/js/youtubeCon.js"></script>

@@ -148,6 +148,26 @@ body {
     z-index: 100;
 }
 
+.search__result {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+
+    width: 1000px;
+    height: 600px;
+    z-index: 10;
+    background: var(--azul-medio);
+    border-radius: 10px;
+    border: 2px solid #154580;
+
+    gap: 20px;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
 .botao__adicionar {
     border-radius: 24px;
     background: linear-gradient(rgba(21, 69, 155), rgba(21, 69, 155, 0.75));
