@@ -4,7 +4,15 @@
 echo $this->layout('/layouts/layout') ?>
 
 <!-- <h2 style="font-size: 50px; width: 100vw; font-family: 'Caprasimo', cursive; margin-bottom: 20px; padding: 0;">Fy page</h2> -->
-<div class="search__result" id="search__result"></div>
+<div class="search__result" id="search__result" onblur="boxBlur(this)">
+    <i class="fa-solid fa-xmark" style="position: absolute; left: 97.5%; font-size:25px; cursor: pointer; color: rgb(255, 0, 0);" onclick="closeSearch()"></i>
+</div>
+
+<div class="search__box" id="YTSearch__box">
+    <i class="fa-solid fa-magnifying-glass icon__lupa" onclick="ToggleSearch()"></i>
+    <input class="inpYT" type="text" value="" placeholder="Pesquisa de videos" name="YTSearch" id="YTSearch">
+</div>
+
 
 <?php
 if (!empty($videoList)) { ?>
