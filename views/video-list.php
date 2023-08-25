@@ -10,7 +10,7 @@ echo $this->layout('/layouts/layout') ?>
 
 <div class="search__box" id="YTSearch__box">
     <i class="fa-solid fa-magnifying-glass icon__lupa" onclick="ToggleSearch()"></i>
-    <input class="inpYT" type="text" value="" placeholder="Pesquisa de videos" name="YTSearch" id="YTSearch">
+    <input class="inpYT" type="text" value="" placeholder="Pesquisa de videos" name="YTSearch" id="YTSearch" onfocus="selectText(this)">
 </div>
 
 
@@ -39,7 +39,7 @@ if (!empty($videoList)) { ?>
                     <div class="acoes-video">
                         <a href="/enviar-video?id=<?= $video->id; ?>">Editar</a>
                         <?php if ($video->getFilePath() !== null) { ?>
-                            <a href="/remover-capa?id=<?= $video->id; ?>">Tirar <br /> capa</a>
+                            <a href="/remover-capa?id=<?= $video->id; ?>">Tirar <br/> capa</a>
                         <?php } ?>
                         <a href="/remover-video?id=<?= $video->id; ?>">Excluir</a>
                     </div>
