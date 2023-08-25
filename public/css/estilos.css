@@ -61,6 +61,8 @@ body {
     width: 100%;
     padding: 0 25px;
     z-index: 10;
+    overflow: hidden;
+    transition: .5s;
 }
 
 .logo {
@@ -172,26 +174,28 @@ body {
 }
 
 .search__box {
-    position: static;
+    position: fixed;
     background: var(--azul-medio);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin: 25px;
     border-radius: 40px 40px 40px 40px;
     overflow: hidden;
     transition: .5s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    z-index: 10;
 }
 
 .inpYT {
-    width: 80%;
+    width: 240px;
     height: 80%;
-    border-radius: 40px 40px 40px 40px;
+    border-radius: 40px;
     margin: 5px;
     color: black;
     padding-left: 20px;
+    margin-left: 10px;
 }
 
 .inpYT:focus {
