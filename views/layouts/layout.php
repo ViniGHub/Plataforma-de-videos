@@ -43,7 +43,7 @@ use League\Plates\Extension\Asset;
     <!-- Cabecalho -->
     <header>
 
-        <nav class="cabecalho">
+        <nav class="cabecalho" id="cabec">
             <div style="display:flex; align-items: center; justify-content: start; position: absolute;">
 
 
@@ -55,20 +55,17 @@ use League\Plates\Extension\Asset;
                         <h1 class="email__user"><?= $_SESSION['email'] ?></h1>
                     <?php
                 } else { ?>
-                    <a style="color: var(--azul-medio); text-decoration:none; display:flex; flex-direction: row-reverse; align-items: center; justify-content: start; position: absolute;" class="link__form" href="/create-login"><span style="width:max-content">Criar conta</span>
+                        <a style="color: var(--azul-medio); text-decoration:none; display:flex; flex-direction: row-reverse; align-items: center; justify-content: start; position: absolute;" class="link__form" href="/create-login"><span style="width:max-content">Criar conta</span>
 
-                    <?php
-                } ?>
+                        <?php
+                    } ?>
                         <i onmouseover="shake(this)" onmouseout="removeShake(this)" style="color: var(--azul-medio); font-size: 30px; margin: 0 10px 0 10px;" class="fa-solid fa-circle-user" id="UserIcon"></i>
 
-                    </a>
-
-
+                        </a>
 
 
             </div>
             <div></div>
-
 
             <a href="./" style="margin-left:100px;"><img class="logo" src="./img/cabecalho/Logo.ico" alt="Logo canal Vtube"></a>
 
@@ -94,6 +91,8 @@ use League\Plates\Extension\Asset;
     /** @var \League\Plates\Template\Template $this */
     echo $this->section('content');
     ?>
+
+    <script src="/js/anim-nav.js"></script>
 
     <script>
         let load = document.querySelector('#load__page');

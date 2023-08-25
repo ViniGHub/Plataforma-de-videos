@@ -4,13 +4,13 @@ let YTSearchBox = document.querySelector('#YTSearch__box');
 YTSearchBox.style.width = '50px';
 let YTSearch = document.querySelector('#YTSearch');
 
-let errIsSet = false, isSet = false;
+let errIsSet = false;
 
 let aVideos, aVideosErr, imgVideos, pVideos;
 aVideosErr = document.createElement('a');
 
 function search(inp) {
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${inp.value}&safeSearch=none&type=video&videoType=any&key=${apiKey}`)
+    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${inp.value}&safeSearch=none&type=video&videoType=any&key=`)
         .then((result) => {
             if (result.ok) {
                 return result.json();
@@ -26,7 +26,7 @@ function search(inp) {
                 }
 
                 aVideosErr.setAttribute('href', `https://www.youtube.com/results?search_query=${inp.value}&sp=EgIQAQ%253D%253D`);
-                aVideosErr.innerHTML = "O sistema de pesquisa não está funcionando, clique AQUI para pesquisar \"" + inp.value + "\" diretamente no Youtube.";
+                aVideosErr.innerHTML = "O sistema de pesquisa não está funcionando, clique AQUI para pesquisar \"" + inp.value + "\" diretamente no Youtube e trazer a URL do video desejado para a galeria.";
 
                 resultYT.appendChild(aVideosErr);
                 return;
@@ -60,6 +60,18 @@ function search(inp) {
                 resultYT.appendChild(aVideos);
             }
 
+            aVideos = document.createElement('a');
+            aVideos.setAttribute('href', `https://www.youtube.com/results?search_query=${inp.value}&sp=EgIQAQ%253D%253D`);
+            aVideos.innerHTML = "Não encontrou o que gostaria? Clique AQUI para pesquisar \"" + inp.value + "\" diretamente no Youtube e trazer a URL do video desejado para a galeria.";
+            aVideos.setAttribute('target', '_blank');
+            aVideos.style.fontSize = '20px';
+            aVideos.style.marginTop = '20px';
+            aVideos.style.width = 'max-content';
+            aVideos.style.display = 'flex';
+            aVideos.style.maxWidth = '100%';
+
+            resultYT.appendChild(aVideos);
+
             resultYT.style.display = 'flex';
             return;
         });
@@ -77,6 +89,10 @@ function setResultErr() {
     errIsSet = true;
 
     return el;
+}
+
+function setResult(params) {
+
 }
 
 function ToggleSearch() {
@@ -99,4 +115,8 @@ YTSearch.addEventListener('keypress', (e) => {
 function closeSearch() {
     resultYT.style.display = 'none';
 
+}
+
+function selectText(inp) {
+    inp.select();
 }
