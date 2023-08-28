@@ -39,7 +39,7 @@ class VideoController implements RequestHandlerInterface
         }
 
         if (!str_contains($url, 'https://www.youtube.com/embed')) {
-            if (str_contains($url, 'v=')) {
+            if (str_contains($url, 'v=') && str_contains($url, 'https://www.youtube.com/watch')) {
                 $idYouT = mb_substr($url, (mb_stripos($url, 'v=') + 2), 11);
                 $url = 'https://www.youtube.com/embed/' . $idYouT;
             } else {
