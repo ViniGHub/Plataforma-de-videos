@@ -37,11 +37,11 @@ if (!empty($videoList)) { ?>
                     </div>
 
                     <div class="acoes-video">
-                        <a href="/enviar-video?id=<?= $video->id; ?>">Editar</a>
+                        <a href="/enviar-video?id=<?= $video->id; ?>" class="btn__acVideos" onclick="animCard(this)">Editar</a>
                         <?php if ($video->getFilePath() !== null) { ?>
-                            <a href="/remover-capa?id=<?= $video->id; ?>">Tirar <br/> capa</a>
+                            <a href="/remover-capa?id=<?= $video->id; ?>" class="btn__acVideos" onclick="animCard(this)">Tirar capa</a>
                         <?php } ?>
-                        <a href="/remover-video?id=<?= $video->id; ?>">Excluir</a>
+                        <a href="/remover-video?id=<?= $video->id; ?>" class="btn__acVideos" onclick="animCard(this)">Excluir</a>
                     </div>
                 </div>
             </li>
@@ -59,3 +59,5 @@ if (!empty($videoList)) { ?>
 } ?>
 
 <script src="/js/youtubeCon.js"></script>
+
+<script src="/js/anim-ViAction.js"></script>
