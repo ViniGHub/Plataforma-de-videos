@@ -38,6 +38,16 @@ class VideoController implements RequestHandlerInterface
             return new Response(302, ['location' => '/enviar-video?id=' . $id]);
         }
 
+        if (!str_contains($url, 'https://www.youtube.com/embed')) {
+            if (str_contains($url, 'v=') && str_contains($url, 'https://www.youtube.com/watch')) {
+                $idYouT = mb_substr($url, (mb_stripos($url, 'v=') + 2), 11);
+                $url = 'https://www.youtube.com/embed/' . $idYouT;
+            } else {
+                $this->addErrorMessage('O link adicionado não é do youtube.');
+                return new Response(302, ['location' => '/enviar-video?id=' . $id]);
+            }
+        }
+
         $video = new Video($url, $titulo);
         if ($image->getError() === UPLOAD_ERR_OK) {
             $safeFileName = $image->getStream()->getMetaData('uri');
