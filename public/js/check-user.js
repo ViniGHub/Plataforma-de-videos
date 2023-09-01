@@ -1,15 +1,22 @@
 // Chama os icons da pagina de criação de usuario
 let emailIco = document.querySelector('#email3_ico');
+let emailEspico = document.querySelector('#emailEsp_ico');
+
 let passIco = document.querySelector('#pass3_ico');
 let passlayIco = document.querySelector('#passlay_ico');
 
+
 // Chama os textos de confirmação da pagina de criação de usuario
 let email3 = document.querySelector('#email3');
+let emailEsp = document.querySelector('#emailEsp');
+
 let pass3 = document.querySelector('#pass3');
 let passlay = document.querySelector('#passlay');
 
+
 // informa o estado das validações de senha 
-let isRightE = false;
+let isRightE3 = false;
+let isRightEsp = false;
 let isRightP3 = false;
 let isRightPL = false;
 
@@ -77,9 +84,21 @@ function checkEmpty() {
 }
 
 function checkUser(user) {
+    if (userEspfun(user) & user3fun(user)) {
+        styl.style.setProperty('--campo-confirm-E', 'rgb(126, 231, 126)');
 
-    if (user.value.length >= 3 && !isRightE) {
-        isRightE = true;
+        return true;
+    } else if (styl.style.getPropertyValue('--campo-confirm-E') !== '#154580') {
+        styl.style.setProperty('--campo-confirm-E', '#154580');
+
+        return false;
+    }
+    
+}
+
+function user3fun(user) {
+    if (user.value.length >= 3 && !isRightE3) {
+        isRightE3 = true;
         emailIco.style.color = 'green';
         emailIco.classList.remove('fa-xmark');
         emailIco.classList.add('fa-check');
@@ -89,10 +108,8 @@ function checkUser(user) {
             emailIco.classList.remove('fa-shake');
         }, 1000);
 
-        styl.style.setProperty('--campo-confirm-E', 'rgb(126, 231, 126)');
-
-    } else if (user.value.length < 3 && isRightE) {
-        isRightE = false;
+    } else if (user.value.length < 3 && isRightE3) {
+        isRightE3 = false;
         emailIco.style.color = 'red';
         email3.style.color = 'red';
         emailIco.classList.remove('fa-check');
@@ -103,15 +120,41 @@ function checkUser(user) {
             emailIco.classList.remove('fa-shake');
         }, 1000);
 
-        styl.style.setProperty('--campo-confirm-E', '#154580');
     }
 
-    return isRightE;
+    return isRightE3;
+}
 
+function userEspfun(user) {
+    if (!user.value.includes(' ') && !isRightEsp) {
+        isRightEsp = true;
+        emailEspico.style.color = 'green';
+        emailEspico.classList.remove('fa-xmark');
+        emailEspico.classList.add('fa-check');
+        emailEspico.classList.add('fa-shake');
+        emailEsp.style.color = 'green';
+        setTimeout(function (params) {
+            emailEspico.classList.remove('fa-shake');
+        }, 1000);
+
+    } else if (user.value.includes(' ') && isRightEsp) {
+        isRightEsp = false;
+        emailEspico.style.color = 'red';
+        emailEsp.style.color = 'red';
+        emailEspico.classList.remove('fa-check');
+        emailEspico.classList.add('fa-xmark');
+
+        emailEspico.classList.add('fa-shake');
+        setTimeout(function (params) {
+            emailEspico.classList.remove('fa-shake');
+        }, 1000);
+
+    }
+
+    return isRightEsp;
 }
 
 function checkPass(pass) {
-
     if (passlayfun(pass) & pass3fun(pass)) {
         styl.style.setProperty('--campo-confirm-P', 'rgb(126, 231, 126)');
 
