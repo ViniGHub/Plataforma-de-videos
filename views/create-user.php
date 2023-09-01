@@ -28,6 +28,10 @@ echo $this->layout('/layouts/layout');
                     <p class="texto__requisitos" id="email3">Usúario com pelo menos 3 carácteres.</p>
                 </li>
                 <li>
+                    <i class="fa-solid fa-xmark" onmouseover="shake(this)" id="emailEsp_ico" onmouseout="removeShake(this)"></i>
+                    <p class="texto__requisitos" id="emailEsp">Usúario sem espaço.</p>
+                </li>
+                <li>
                     <i class="fa-solid fa-xmark" onmouseover="shake(this)" id="pass3_ico" onmouseout="removeShake(this)"></i>
                     <p class="texto__requisitos" id="pass3">Senha com pelo menos 3 carácteres.</p>
                 </li>

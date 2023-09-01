@@ -60,4 +60,6 @@ if (!empty($videoList)) { ?>
 
 <script src="/js/youtubeCon.js"></script>
 
+<script src="/js/anim-nav.js"></script>
+
 <script src="/js/anim-ViAction.js"></script>

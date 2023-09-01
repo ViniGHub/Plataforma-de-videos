@@ -92,8 +92,6 @@ use League\Plates\Extension\Asset;
     echo $this->section('content');
     ?>
 
-    <script src="/js/anim-nav.js"></script>
-
     <script>
         let load = document.querySelector('#load__page');
         let body = document.querySelector('body');
